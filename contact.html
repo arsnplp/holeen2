@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Holeen Family</title>
+  <meta name="description" content="Confiez-nous votre projet ou rejoignez notre réseau de prestataires. Un seul interlocuteur, sans aucun surcoût.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&family=Kufam:wght@400;500&family=Overpass:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="header.png">
+  <link rel="stylesheet" href="sections.css">
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+  <div class="progression" aria-hidden="true"><div class="progression__barre"></div></div>
+
+  <!-- En-tête : choix du parcours -->
+  <header class="accueil">
+    <div class="fond"><div class="fond__image accueil__image" data-parallax data-parallax-start="0" data-parallax-end="20"></div></div>
+
+    <nav class="barre" aria-label="Navigation principale">
+      <a class="barre__logo" href="index.html" aria-label="Holeen Family — Accueil">
+        <img src="logo-crop.webp" alt="Holeen Family" width="1460" height="540">
+      </a>
+      <a class="barre__retour" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+        Retour à l'accueil
+      </a>
+    </nav>
+
+    <div class="accueil__contenu">
+      <p class="surtitre">Contact</p>
+      <h1 class="accueil__titre" data-lignes>Parlons de ce que vous voulez construire.</h1>
+      <p class="accueil__texte" data-apparait>
+        Deux façons de travailler avec Holeen Family. Choisissez la vôtre, remplissez le formulaire :
+        nous revenons vers vous rapidement.
+      </p>
+
+      <div class="choix" data-animate="stagger-up">
+        <a class="choix__carte verre" href="#projet" data-animate="stagger-up-item">
+          <span class="choix__rang">01</span>
+          <span class="choix__titre">J'ai un projet à vous confier</span>
+          <span class="choix__texte">Vous cherchez le bon prestataire, au meilleur prix, sans y passer vos journées.</span>
+          <span class="lien">Confier un projet<span class="lien__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></span>
+        </a>
+        <a class="choix__carte verre" href="#rejoindre" data-animate="stagger-up-item">
+          <span class="choix__rang">02</span>
+          <span class="choix__titre">Je veux rejoindre le réseau</span>
+          <span class="choix__texte">Vous êtes prestataire et vous voulez recevoir des projets qualifiés, sans prospecter.</span>
+          <span class="lien">Rejoindre le réseau<span class="lien__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="site">
+
+    <!-- 1. Confier un projet -->
+    <section class="s" id="projet">
+      <div class="s__haut"></div>
+      <div class="conteneur grille">
+        <p class="surtitre volet__surtitre">Entreprises</p>
+        <h2 class="h2 volet__titre">Confiez-nous votre projet</h2>
+
+        <form class="formulaire volet__formulaire" data-formulaire="projet" data-endpoint="" novalidate>
+          <div class="formulaire__rang" data-animate="stagger-up">
+            <label class="champ" data-animate="stagger-up-item">
+              <input type="text" name="nom" placeholder=" " autocomplete="name" required>
+              <span>Nom et prénom *</span>
+            </label>
+            <label class="champ" data-animate="stagger-up-item">
+              <input type="text" name="societe" placeholder=" " autocomplete="organization">
+              <span>Société</span>
+            </label>
+            <label class="champ" data-animate="stagger-up-item">
+              <input type="email" name="email" placeholder=" " autocomplete="email" required>
+              <span>E-mail *</span>
+            </label>
+            <label class="champ" data-animate="stagger-up-item">
+              <input type="tel" name="telephone" placeholder=" " autocomplete="tel">
+              <span>Téléphone</span>
+            </label>
+          </div>
+
+          <fieldset class="pastilles">
+            <legend>Votre besoin concerne…</legend>
+            <label><input type="checkbox" name="domaine" value="Communication"><span>Communication</span></label>
+            <label><input type="checkbox" name="domaine" value="Événementiel"><span>Événementiel</span></label>
+            <label><input type="checkbox" name="domaine" value="Achats spécifiques"><span>Achats spécifiques</span></label>
+            <label><input type="checkbox" name="domaine" value="Aménagement"><span>Aménagement</span></label>
+            <label><input type="checkbox" name="domaine" value="Autre"><span>Autre chose</span></label>
+          </fieldset>
+
+          <div class="formulaire__rang">
+            <label class="champ champ--liste">
+              <select name="budget" required>
+                <option value="" selected disabled hidden></option>
+                <option>Moins de 5 000 €</option>
+                <option>5 000 à 20 000 €</option>
+                <option>20 000 à 50 000 €</option>
+                <option>Plus de 50 000 €</option>
+                <option>À définir ensemble</option>
+              </select>
+              <span>Budget envisagé *</span>
+            </label>
+            <label class="champ champ--liste">
+              <select name="delai" required>
+                <option value="" selected disabled hidden></option>
+                <option>Urgent (moins d'un mois)</option>
+                <option>D'ici 1 à 3 mois</option>
+                <option>D'ici 3 à 6 mois</option>
+                <option>Pas de date précise</option>
+              </select>
+              <span>Échéance *</span>
+            </label>
+          </div>
+
+          <label class="champ champ--zone">
+            <textarea name="message" rows="5" placeholder=" " required></textarea>
+            <span>Décrivez votre projet en quelques lignes *</span>
+          </label>
+
+          <label class="accord">
+            <input type="checkbox" name="accord" required>
+            <span>J'accepte que Holeen Family utilise ces informations pour me recontacter au sujet de mon projet.</span>
+          </label>
+
+          <div class="formulaire__bas">
+            <button class="bouton bouton--grand" type="submit"><span class="bouton__texte">Envoyer mon projet</span></button>
+            <p class="formulaire__etat" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <aside class="volet__cote">
+          <div class="volet__bloc">
+            <h3 class="h3">Et ensuite ?</h3>
+            <ol class="suite">
+              <li><span>01</span>Nous vous rappelons pour cadrer le besoin, gratuitement et sans engagement.</li>
+              <li><span>02</span>Nous activons le réseau et vous présentons la meilleure option.</li>
+              <li><span>03</span>Nous pilotons la réalisation de A à Z, jusqu'à la livraison.</li>
+            </ol>
+          </div>
+          <div class="volet__bloc volet__bloc--sombre">
+            <p class="h3">Aucun surcoût pour vous.</p>
+            <p>Notre intervention ne vous coûte rien de plus : vous payez le prestataire, au tarif que nous avons négocié.</p>
+          </div>
+        </aside>
+      </div>
+      <div class="s__bas"></div>
+    </section>
+
+    <!-- 2. Rejoindre le réseau -->
+    <section class="s s--marque" id="rejoindre">
+      <span class="experience__filigrane" aria-hidden="true">✦</span>
+      <div class="s__haut"></div>
+      <div class="conteneur grille">
+        <p class="surtitre volet__surtitre">Prestataires</p>
+        <h2 class="h2 volet__titre">Rejoignez le réseau</h2>
+
+        <aside class="volet__cote volet__cote--gauche">
+          <p class="chapo" style="font-size:20px">
+            Indépendant, artisan, agence ou entreprise : si vous faites bien votre métier, nous voulons vous connaître.
+          </p>
+          <ul class="atouts">
+            <li>Des projets qualifiés, cadrés en amont</li>
+            <li>Zéro prospection : nous gérons la relation client</li>
+            <li>Un seul interlocuteur pour la coordination</li>
+            <li>Une sélection sur trois critères : sérieux, qualité, délais</li>
+          </ul>
+        </aside>
+
+        <form class="formulaire formulaire--clair volet__formulaire volet__formulaire--droite verre" data-formulaire="reseau" data-endpoint="" novalidate>
+          <div class="formulaire__rang" data-animate="stagger-up">
+            <label class="champ" data-animate="stagger-up-item">
+              <input type="text" name="nom" placeholder=" " autocomplete="name" required>
+              <span>Nom et prénom *</span>
+            </label>
+            <label class="champ" data-animate="stagger-up-item">
+              <input type="text" name="societe" placeholder=" " autocomplete="organization" required>
+              <span>Société / enseigne *</span>
+            </label>
+            <label class="champ" data-animate="stagger-up-item">
+              <input type="email" name="email" placeholder=" " autocomplete="email" required>
+              <span>E-mail *</span>
+            </label>
+            <label class="champ" data-animate="stagger-up-item">
+              <input type="tel" name="telephone" placeholder=" " autocomplete="tel">
+              <span>Téléphone</span>
+            </label>
+          </div>
+
+          <fieldset class="pastilles">
+            <legend>Votre secteur</legend>
+            <label><input type="checkbox" name="secteur" value="Communication"><span>Communication</span></label>
+            <label><input type="checkbox" name="secteur" value="Événementiel"><span>Événementiel</span></label>
+            <label><input type="checkbox" name="secteur" value="Aménagement"><span>Aménagement</span></label>
+            <label><input type="checkbox" name="secteur" value="BTP"><span>BTP</span></label>
+            <label><input type="checkbox" name="secteur" value="IT &amp; Digital"><span>IT &amp; Digital</span></label>
+            <label><input type="checkbox" name="secteur" value="Industrie"><span>Industrie</span></label>
+            <label><input type="checkbox" name="secteur" value="Logistique"><span>Logistique</span></label>
+            <label><input type="checkbox" name="secteur" value="Commerce"><span>Commerce</span></label>
+            <label><input type="checkbox" name="secteur" value="Services"><span>Services</span></label>
+            <label><input type="checkbox" name="secteur" value="Environnement"><span>Environnement</span></label>
+            <label><input type="checkbox" name="secteur" value="Autre"><span>Autre</span></label>
+          </fieldset>
+
+          <div class="formulaire__rang">
+            <label class="champ">
+              <input type="text" name="zone" placeholder=" ">
+              <span>Zone d'intervention</span>
+            </label>
+            <label class="champ">
+              <input type="url" name="site" placeholder=" " autocomplete="url">
+              <span>Site web ou portfolio</span>
+            </label>
+          </div>
+
+          <label class="champ champ--zone">
+            <textarea name="message" rows="5" placeholder=" " required></textarea>
+            <span>Présentez votre activité et vos références *</span>
+          </label>
+
+          <label class="accord">
+            <input type="checkbox" name="accord" required>
+            <span>J'accepte que Holeen Family utilise ces informations pour étudier ma candidature et me recontacter.</span>
+          </label>
+
+          <div class="formulaire__bas">
+            <button class="bouton bouton--clair bouton--grand" type="submit"><span class="bouton__texte">Envoyer ma candidature</span></button>
+            <p class="formulaire__etat" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+      <div class="s__bas"></div>
+    </section>
+
+    <footer class="pied pied--court">
+      <div class="pied__marque">
+        <a href="index.html" aria-label="Holeen Family — Accueil"><img src="logo-crop.webp" alt="Holeen Family" width="1460" height="540" loading="lazy"></a>
+        <a class="lien" href="index.html">Retour à l'accueil<span class="lien__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      </div>
+      <div class="pied__bas">
+        <p>© <span id="annee">2026</span> Holeen Family. Tous droits réservés.</p>
+      </div>
+    </footer>
+  </main>
+
+  <canvas id="etincelles" aria-hidden="true" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Observer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.17/dist/lenis.min.js"></script>
+  <script src="etincelles.js"></script>
+  <script src="sections.js"></script>
+  <script src="contact.js"></script>
+</body>
+</html>

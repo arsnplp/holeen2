@@ -1,0 +1,184 @@
+/* Pages de domaine : en-tête sombre, prestations, visuel, appel à l'action (s'appuie sur menu.css et sections.css) */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--noir);
+  color: #f8f4ee;
+  font-family: "Overpass", Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------- En-tête ---------- */
+.entete {
+  --gouttiere: 32px; /* le menu s'aligne sur la marge du contenu */
+  position: relative;
+  min-height: 86svh;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  font-size: 15px;
+  line-height: 1.45;
+  letter-spacing: .0162em;
+}
+
+/* Halo doré + grande étoile : un décor sans image */
+.entete__decor {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background:
+    radial-gradient(60% 70% at 78% 30%, rgba(217, 165, 82, .22), transparent 70%),
+    radial-gradient(40% 50% at 10% 100%, rgba(95, 60, 18, .5), transparent 70%),
+    var(--noir);
+}
+
+.entete__etoile {
+  position: absolute;
+  right: -4%;
+  top: 50%;
+  width: min(58vw, 760px);
+  translate: 0 -50%;
+  color: rgba(217, 165, 82, .1);
+}
+
+.entete__contenu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 28px;
+  padding: 48px 32px 80px;
+}
+
+.entete__fil {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(248, 244, 238, .6);
+}
+
+.entete__fil a:hover { color: var(--or-clair); }
+.entete__fil b { font-weight: 400; color: var(--or); }
+
+.entete__titre {
+  max-width: 1000px;
+  font-family: "Kufam", Tahoma, sans-serif;
+  font-size: clamp(44px, 8vw, 120px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+
+.entete__bas {
+  display: grid;
+  grid-template-columns: minmax(0, 560px) auto;
+  justify-content: space-between;
+  align-items: end;
+  gap: 32px;
+}
+
+.entete__texte { font-size: 20px; line-height: 1.4; color: rgba(248, 244, 238, .82); }
+
+.bouton--or {
+  padding: 18px 28px;
+  background: linear-gradient(100deg, var(--or-clair), var(--or) 60%, #c58a3a);
+  color: #1a1006;
+  font-size: 17px;
+}
+
+/* ---------- Prestations ---------- */
+.prestations__surtitre { grid-column: 1 / span 2; padding-top: 12px; align-self: start; }
+.prestations__entete { grid-column: 3 / -1; display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); column-gap: 32px; margin-bottom: 56px; }
+.prestations__entete .h2 { grid-column: 1 / span 5; }
+.prestations__entete p { grid-column: 6 / -1; align-self: end; }
+
+.prestations__liste {
+  grid-column: 3 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 32px;
+  list-style: none;
+}
+
+.prestation {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 4px 8px;
+  padding: 24px 0 28px;
+  border-top: 1px solid var(--encre);
+  transition: padding-left .4s cubic-bezier(.19, 1, .22, 1);
+}
+
+.prestation:hover { padding-left: 12px; }
+.prestation span { grid-row: span 2; padding-top: 6px; font-size: 11px; color: #9a6424; }
+.prestation p { color: rgba(37, 37, 37, .75); }
+
+/* ---------- Visuel pleine largeur ---------- */
+.visuel {
+  position: relative;
+  height: min(72svh, 640px);
+  margin: 0 32px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ---------- Appel à l'action ---------- */
+.relance__surtitre { grid-column: 1 / span 2; padding-top: 12px; align-self: start; }
+.relance__titre { grid-column: 3 / span 6; font-size: clamp(34px, 4.6vw, 64px); line-height: 1.08; letter-spacing: -.02em; }
+.relance__cote { grid-column: 10 / -1; align-self: end; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+
+/* ---------- Autres domaines ---------- */
+.autres__surtitre { grid-column: 1 / span 2; padding-top: 12px; align-self: start; }
+.autres__liste { grid-column: 3 / -1; list-style: none; border-top: 1px solid var(--encre); }
+
+.autres__liste a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--encre);
+  font-family: "Kufam", Tahoma, sans-serif;
+  font-size: clamp(24px, 3vw, 40px);
+  letter-spacing: -.02em;
+  transition: padding .45s cubic-bezier(.19, 1, .22, 1), color .3s;
+}
+
+.autres__liste a:hover { padding-left: 20px; padding-right: 8px; color: #9a6424; }
+.autres__liste a:hover .lien__icone { background: currentColor; }
+.autres__liste a:hover .lien__icone svg { color: var(--creme); }
+.autres__liste .lien__icone { flex: none; width: 44px; height: 44px; }
+
+.pied--court { padding-top: 0; }
+.pied--court .pied__marque { padding: 64px 0 48px; }
+.pied--court .pied__marque img { height: clamp(56px, 7vw, 88px); }
+
+.site :focus-visible, .entete :focus-visible { outline: 2px solid var(--or); outline-offset: 3px; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 991px) {
+  .entete { min-height: 78svh; --gouttiere: 16px; }
+  .entete__contenu { padding: 32px 16px 56px; gap: 20px; }
+  .entete__bas { grid-template-columns: 1fr; }
+  .entete__texte { font-size: 17px; }
+  .entete__etoile { width: 90vw; right: -30%; }
+
+  .prestations__surtitre, .prestations__entete, .prestations__liste,
+  .relance__surtitre, .relance__titre, .relance__cote,
+  .autres__surtitre, .autres__liste { grid-column: 1 / -1; }
+
+  .prestations__surtitre, .relance__surtitre, .autres__surtitre { padding-top: 0; margin-bottom: 16px; }
+  .prestations__entete { grid-template-columns: 1fr; row-gap: 16px; margin-bottom: 32px; }
+  .prestations__entete .h2, .prestations__entete p { grid-column: 1 / -1; }
+  .prestations__liste { grid-template-columns: 1fr; }
+  .visuel { margin: 0 16px; height: 46svh; }
+  .relance__cote { margin-top: 32px; }
+  .pied--court .pied__marque { flex-direction: column; align-items: flex-start; }
+}

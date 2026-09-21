@@ -7,7 +7,7 @@
   <meta name="description" content="Gagnez du temps, économisez de l'argent et profitez de notre réseau. Quel que soit votre besoin, nous trouvons la perle rare pour le réaliser au meilleur prix.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&family=Kufam:wght@400;500&family=Overpass:wght@400;700&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="header.png">
   <style>
     :root {
@@ -56,51 +56,6 @@
       background:
         linear-gradient(90deg, rgba(11, 8, 6, .82) 0%, rgba(11, 8, 6, .45) 45%, rgba(11, 8, 6, 0) 70%),
         linear-gradient(0deg, rgba(11, 8, 6, .7) 0%, rgba(11, 8, 6, 0) 30%);
-    }
-
-    /* ---------- Barre de navigation ---------- */
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 22px var(--gouttiere);
-    }
-
-    .nav__logo img {
-      display: block;
-      height: 58px;
-      width: auto;
-    }
-
-    .nav__liens {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      list-style: none;
-      font-size: .9rem;
-      font-weight: 500;
-      letter-spacing: .02em;
-    }
-
-    .nav__liens a {
-      color: var(--texte-doux);
-      transition: color .25s;
-    }
-
-    .nav__liens a:hover { color: var(--or-clair); }
-
-    .nav__contact {
-      padding: 10px 22px;
-      border: 1px solid rgba(217, 165, 82, .55);
-      border-radius: 999px;
-      color: var(--or-clair) !important;
-      transition: background .25s, border-color .25s;
-    }
-
-    .nav__contact:hover {
-      background: rgba(217, 165, 82, .12);
-      border-color: var(--or);
     }
 
     /* ---------- Contenu ---------- */
@@ -231,240 +186,9 @@
       color: var(--or-clair);
     }
 
-    .btn:focus-visible,
-    .nav a:focus-visible {
+    .btn:focus-visible {
       outline: 2px solid var(--or-clair);
       outline-offset: 4px;
-    }
-
-    /* ---------- Section : notre rôle ---------- */
-    .role {
-      background: #f7f1e7;
-      color: #1d150d;
-      padding: clamp(72px, 10vw, 140px) var(--gouttiere);
-    }
-
-    /* Bandeau défilant (adaptation vanilla de CurvedLoop, en ligne droite) */
-    .role { overflow-x: clip; }
-
-    .boucle {
-      /* Collé tout en haut de la section, sur toute la largeur */
-      margin: calc(clamp(72px, 10vw, 140px) * -1) calc(var(--gouttiere) * -1) clamp(56px, 8vw, 110px);
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(154, 100, 36, .25);
-      cursor: grab;
-      touch-action: pan-y;
-      visibility: hidden;
-    }
-
-    .boucle.est-prete { visibility: visible; }
-    .boucle.est-saisie { cursor: grabbing; }
-
-    .boucle svg {
-      display: block;
-      width: 100%;
-      overflow: visible;
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 44px;
-      font-weight: 600;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      fill: var(--or-fonce);
-      user-select: none;
-      -webkit-user-select: none;
-    }
-
-    .role__grille {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: clamp(40px, 6vw, 90px);
-      max-width: 1240px;
-      margin: 0 auto;
-    }
-
-    /* Titre de section : centré, en grand, au-dessus des deux colonnes */
-    .role__entete {
-      max-width: 1240px;
-      margin: 0 auto clamp(48px, 7vw, 96px);
-      text-align: center;
-    }
-
-    .role__entete .role__surtitre::after {
-      content: "";
-      width: 40px;
-      height: 1px;
-      background: var(--or-fonce);
-    }
-
-    .role__surtitre {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 24px;
-      font-size: .78rem;
-      font-weight: 600;
-      letter-spacing: .24em;
-      text-transform: uppercase;
-      color: var(--or-fonce);
-    }
-
-    .role__surtitre::before {
-      content: "";
-      width: 40px;
-      height: 1px;
-      background: var(--or-fonce);
-    }
-
-    .role__titre {
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-weight: 500;
-      font-size: clamp(2.6rem, 6.4vw, 5.4rem);
-      line-height: 1.05;
-      letter-spacing: -.01em;
-      text-wrap: balance;
-    }
-
-    .role__titre em {
-      font-style: italic;
-      color: var(--or-fonce);
-    }
-
-    .role__corps p {
-      font-size: clamp(1rem, 1.2vw, 1.1rem);
-      line-height: 1.8;
-      color: rgba(29, 21, 13, .78);
-    }
-
-    .role__corps p + p { margin-top: 22px; }
-
-    .role__corps .role__accroche {
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(1.35rem, 2vw, 1.7rem);
-      line-height: 1.45;
-      color: #1d150d;
-    }
-
-    .role__corps strong {
-      font-weight: 600;
-      color: #1d150d;
-    }
-
-    .role__domaines {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 30px 0;
-      list-style: none;
-    }
-
-    .role__domaines li {
-      padding: 9px 18px;
-      border: 1px solid rgba(154, 100, 36, .4);
-      border-radius: 999px;
-      font-size: .88rem;
-      font-weight: 500;
-      color: #6d4515;
-    }
-
-    .role__visuel {
-      align-self: start;
-      margin-top: -24px;
-    }
-
-    .role__visuel img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    /* Bloc réseau : logos */
-    .reseau {
-      max-width: 1240px;
-      margin: clamp(36px, 4vw, 56px) auto 0;
-      padding-top: clamp(36px, 4vw, 56px);
-      border-top: 1px solid rgba(154, 100, 36, .25);
-    }
-
-    .reseau__entete {
-      display: grid;
-      grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
-      gap: clamp(24px, 7vw, 110px);
-      align-items: end;
-      margin-bottom: clamp(36px, 5vw, 64px);
-    }
-
-    .reseau__titre {
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-weight: 500;
-      font-size: clamp(1.9rem, 3.4vw, 2.8rem);
-      line-height: 1.1;
-      text-wrap: balance;
-    }
-
-    .reseau__titre em {
-      font-style: italic;
-      color: var(--or-fonce);
-    }
-
-    .reseau__texte {
-      font-size: clamp(1rem, 1.2vw, 1.1rem);
-      line-height: 1.8;
-      color: rgba(29, 21, 13, .78);
-    }
-
-    .reseau__logos {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      list-style: none;
-      border: 1px solid rgba(154, 100, 36, .22);
-      border-radius: 18px;
-      overflow: hidden;
-      background: rgba(154, 100, 36, .22); /* dessine les filets entre les cases */
-    }
-
-    .reseau__logos li {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: clamp(110px, 12vw, 160px);
-      padding: 24px clamp(20px, 3vw, 44px);
-      background: #fffdf9;
-    }
-
-    .reseau__logos img {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: var(--h, 44px);
-      object-fit: contain;
-      filter: grayscale(1);
-      opacity: .7;
-      transition: filter .3s, opacity .3s, transform .3s;
-    }
-
-    .reseau__logos li:hover img {
-      filter: none;
-      opacity: 1;
-      transform: scale(1.04);
-    }
-
-    .reseau__note {
-      margin-top: 22px;
-      font-size: .9rem;
-      color: rgba(29, 21, 13, .6);
-      text-align: center;
-    }
-
-    @media (max-width: 820px) {
-      .reseau__entete { grid-template-columns: 1fr; }
-      .reseau__logos { grid-template-columns: repeat(2, 1fr); }
-      /* Pas de survol au doigt : logos en couleur d'office */
-      .reseau__logos img { filter: none; opacity: 1; }
-
-      /* Le SVG est élargi pour garder un texte lisible */
-      .boucle svg { width: 220%; margin-left: -60%; }
-      .role__grille { grid-template-columns: 1fr; }
     }
 
     /* ---------- Apparition ---------- */
@@ -485,10 +209,6 @@
 
     /* ---------- Mobile ---------- */
     @media (max-width: 820px) {
-      .nav__liens li:not(:last-child) { display: none; }
-      .nav__logo img { height: 46px; }
-      .nav__contact { padding: 9px 18px; }
-
       /* Les mains passent en haut, le texte en dessous */
       .hero__fond {
         background-size: auto 46%;
@@ -508,6 +228,8 @@
       .btn { width: 100%; padding: 16px 18px; font-size: .85rem; gap: 8px; }
     }
   </style>
+  <link rel="stylesheet" href="menu.css">
+  <link rel="stylesheet" href="sections.css">
 </head>
 <body>
 
@@ -515,14 +237,28 @@
     <div class="hero__fond" aria-hidden="true"></div>
 
     <nav class="nav" aria-label="Navigation principale">
-      <a class="nav__logo" href="/" aria-label="Holeen Family — Accueil">
+      <a class="nav__logo" href="index.html" aria-label="Holeen Family — Accueil">
         <img src="logo-crop.webp" alt="Holeen Family" width="1460" height="540">
       </a>
       <ul class="nav__liens">
-        <li><a href="#services">Nos services</a></li>
-        <li><a href="#reseau">Le réseau</a></li>
-        <li><a href="#a-propos">À propos</a></li>
-        <li><a class="nav__contact" href="#contact">Contact</a></li>
+        <li class="nav__secondaire"><a href="#services">Notre rôle</a></li>
+        <li class="deroulant">
+          <button class="deroulant__bouton" type="button" aria-expanded="false" aria-controls="menu-domaines">
+            Domaines
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="deroulant__volet" id="menu-domaines">
+            <ul>
+              <li><a href="communication.html"><span>01</span>Communication</a></li>
+              <li><a href="evenementiel.html"><span>02</span>Événementiel</a></li>
+              <li><a href="achats-specifiques.html"><span>03</span>Achats spécifiques</a></li>
+              <li><a href="amenagement.html"><span>04</span>Aménagement</a></li>
+            </ul>
+            <a class="deroulant__tous" href="#domaines">Tous nos domaines →</a>
+          </div>
+        </li>
+        <li class="nav__secondaire"><a href="#pourquoi">À propos</a></li>
+        <li><a class="nav__contact" href="contact.html">Contact</a></li>
       </ul>
     </nav>
 
@@ -537,11 +273,11 @@
       </p>
 
       <div class="hero__actions">
-        <a class="btn btn--plein" href="#projet">
+        <a class="btn btn--plein" href="contact.html#projet">
           J'ai un projet à vous confier
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a class="btn btn--contour" href="#rejoindre">
+        <a class="btn btn--contour" href="contact.html#rejoindre">
           Je veux rejoindre votre réseau de prestataires
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
@@ -549,225 +285,394 @@
     </div>
   </header>
 
-  <main>
-    <section class="role" id="services">
-      <div class="boucle" id="boucle" aria-hidden="true"
-           data-texte="Un seul contact ✦ Le bon prestataire ✦ Le meilleur prix ✦ Piloté de A à Z ✦ Zéro surcoût ✦">
-        <svg viewBox="0 0 1440 60">
-          <text class="boucle__mesure" xml:space="preserve" style="visibility:hidden;opacity:0;pointer-events:none"></text>
-          <defs>
-            <path id="boucle-courbe" d="M-100,45 L1540,45" fill="none"/>
-          </defs>
-          <text xml:space="preserve"><textPath class="boucle__texte" href="#boucle-courbe" xml:space="preserve"></textPath></text>
-        </svg>
-      </div>
+  <div class="progression" aria-hidden="true"><div class="progression__barre"></div></div>
 
-      <div class="role__entete">
-        <p class="role__surtitre">Notre rôle</p>
-        <h2 class="role__titre">Vous avez l'idée, on a <em>le réseau.</em></h2>
-      </div>
+  <main class="site">
 
-      <div class="role__grille">
-        <div class="role__corps">
-          <p class="role__accroche">
-            Gérer un projet d'entreprise, chercher des fournisseurs, comparer des devis, relancer les retardataires…
-            ça prend un temps fou. C'est là que Holeen Family entre en jeu.
-          </p>
-
-          <p>
-            Considérez-nous comme votre partenaire privilégié et votre facilitateur au quotidien.
-            Nous ne nous cantonnons pas à un seul domaine&nbsp;:
-          </p>
-
-          <ul class="role__domaines">
-            <li>Communication</li>
-            <li>Événementiel</li>
-            <li>Achats spécifiques</li>
-            <li>Aménagement</li>
-            <li>Et bien plus…</li>
-          </ul>
-
-          <p>
-            Notre métier, c'est d'être votre <strong>point de contact unique</strong>. Nous piochons dans notre super réseau
-            pour vous dénicher le bon prestataire, avec le meilleur rapport <strong>qualité / prix / délai</strong>,
-            et nous pilotons le tout de A à Z.
-          </p>
-        </div>
-
-        <figure class="role__visuel">
-          <img src="section1-reseau.webp" width="1330" height="1183" loading="lazy"
-               alt="Holeen Family au centre de son réseau : industrie, IT &amp; digital, services, BTP, logistique, commerce, environnement">
-        </figure>
-      </div>
-
-      <div class="reseau" id="reseau">
-        <div class="reseau__entete">
-          <h3 class="reseau__titre">Un réseau <em>très large</em>, à votre service.</h3>
-          <p class="reseau__texte">
-            Des grands groupes aux pépites spécialisées, notre carnet d'adresses couvre tous les métiers.
-            Quel que soit votre projet, nous savons déjà qui appeler. Quelques exemples&nbsp;:
-          </p>
-        </div>
-
-        <ul class="reseau__logos">
-          <li><img src="logoloreal-net.webp" alt="L'Oréal Paris" style="--h:52px" loading="lazy"></li>
-          <li><img src="logovinci-net.webp" alt="Vinci" style="--h:38px" loading="lazy"></li>
-          <li><img src="logodecatlon.png" alt="Decathlon" style="--h:48px" loading="lazy"></li>
-          <li><img src="logoAccor.svg" alt="Accor" style="--h:62px" loading="lazy"></li>
-          <li><img src="Logo_Eiffage_Construction.png" alt="Eiffage Construction" style="--h:72px" loading="lazy"></li>
-          <li><img src="BlaBlaCar_logo.svg.webp" alt="BlaBlaCar" style="--h:34px" loading="lazy"></li>
-          <li><img src="Logo_Veepee.svg" alt="Veepee" style="--h:40px" loading="lazy"></li>
-          <li><img src="logobackmarket.png" alt="Back Market" style="--h:120px" loading="lazy"></li>
-        </ul>
-
-        <p class="reseau__note">…et bien d'autres encore.</p>
+    <!-- 1. Logos du réseau -->
+    <section class="s logos" id="reseau">
+      <p class="surtitre">Ils font partie de notre réseau</p>
+      <div class="logos__piste" id="logos-piste">
+          <div class="logos__panneau">
+            <img src="logoloreal-net.webp" alt="L'Oréal Paris" draggable="false">
+            <img src="logovinci-net.webp" alt="Vinci" draggable="false">
+            <img src="logodecatlon.png" alt="Decathlon" draggable="false">
+            <img src="logoAccor.svg" alt="Accor" draggable="false">
+            <img src="Logo_Eiffage_Construction.png" alt="Eiffage Construction" draggable="false">
+            <img src="BlaBlaCar_logo.svg.webp" alt="BlaBlaCar" draggable="false">
+            <img src="Logo_Veepee.svg" alt="Veepee" draggable="false">
+            <img src="logobackmarket.png" alt="Back Market" draggable="false">
+          </div>
+          <div class="logos__panneau" aria-hidden="true">
+            <img src="logoloreal-net.webp" alt="" draggable="false">
+            <img src="logovinci-net.webp" alt="" draggable="false">
+            <img src="logodecatlon.png" alt="" draggable="false">
+            <img src="logoAccor.svg" alt="" draggable="false">
+            <img src="Logo_Eiffage_Construction.png" alt="" draggable="false">
+            <img src="BlaBlaCar_logo.svg.webp" alt="" draggable="false">
+            <img src="Logo_Veepee.svg" alt="" draggable="false">
+            <img src="logobackmarket.png" alt="" draggable="false">
+          </div>
+          <div class="logos__panneau" aria-hidden="true">
+            <img src="logoloreal-net.webp" alt="" draggable="false">
+            <img src="logovinci-net.webp" alt="" draggable="false">
+            <img src="logodecatlon.png" alt="" draggable="false">
+            <img src="logoAccor.svg" alt="" draggable="false">
+            <img src="Logo_Eiffage_Construction.png" alt="" draggable="false">
+            <img src="BlaBlaCar_logo.svg.webp" alt="" draggable="false">
+            <img src="Logo_Veepee.svg" alt="" draggable="false">
+            <img src="logobackmarket.png" alt="" draggable="false">
+          </div>
       </div>
     </section>
+
+    <!-- 2. Ce que nous faisons -->
+    <section class="s offre" id="services">
+      <div class="offre__cadre">
+        <div class="fond"><div class="fond__image vide vide--ciel" data-parallax data-parallax-start="-35" data-parallax-end="0"><span class="vide__etiquette">Visuel ou vidéo de fond à compléter</span></div></div>
+
+        <div class="offre__entete">
+          <p class="surtitre">Notre rôle</p>
+          <h2 class="h2">Vous avez l'idée, on a le réseau.</h2>
+          <p>
+            Gérer un projet d'entreprise, chercher des fournisseurs, comparer des devis, relancer les retardataires…
+            ça prend un temps fou. C'est là que Holeen Family entre en jeu : considérez-nous comme votre partenaire
+            privilégié et votre facilitateur au quotidien.
+          </p>
+          <div class="offre__boutons">
+            <a class="bouton" href="#pourquoi"><span class="bouton__texte">Qui sommes-nous</span></a>
+            <a class="bouton" href="#domaines"><span class="bouton__texte">Nos domaines</span></a>
+          </div>
+        </div>
+
+        <div class="offre__cartes" data-animate="stagger-up">
+          <article class="offre__carte verre" data-animate="stagger-up-item">
+            <div class="offre__carte-haut">
+              <h3 class="h3">Un point de contact unique</h3>
+              <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="22" cy="14" r="7"/><path d="M8 38c0-8 6-13 14-13s14 5 14 13"/></svg>
+            </div>
+            <p>Fini les dizaines d'interlocuteurs. Vous nous confiez votre besoin, nous devenons votre seul contact du premier échange à la livraison.</p>
+            <a class="lien" href="#domaines">En savoir plus<span class="lien__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          </article>
+          <article class="offre__carte verre" data-animate="stagger-up-item">
+            <div class="offre__carte-haut">
+              <h3 class="h3">Le bon prestataire</h3>
+              <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 5l5 11 12 1.5-9 8.5 2.5 12L22 32l-10.5 6L14 26l-9-8.5L17 16z"/></svg>
+            </div>
+            <p>Nous piochons dans notre réseau pour dénicher la perle rare : le professionnel qui correspond à votre projet, avec le meilleur rapport qualité / prix / délai.</p>
+            <a class="lien" href="#pourquoi">Découvrir le réseau<span class="lien__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          </article>
+          <article class="offre__carte verre" data-animate="stagger-up-item">
+            <div class="offre__carte-haut">
+              <h3 class="h3">Un pilotage de A à Z</h3>
+              <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 34l10-12 8 6 14-18"/><path d="M30 10h8v8"/></svg>
+            </div>
+            <p>Devis, relances, coordination, suivi : nous gérons tout. Et la meilleure nouvelle : notre intervention se fait sans aucun surcoût pour vous.</p>
+            <a class="lien" href="#processus">Voir le déroulé<span class="lien__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          </article>
+        </div>
+
+        <p class="offre__slogan">Votre projet.<br>Notre réseau.</p>
+      </div>
+    </section>
+
+    <!-- 3. Domaines d'intervention -->
+    <section class="s domaines" id="domaines">
+      <div class="s__haut"></div>
+      <div class="conteneur grille">
+        <p class="surtitre domaines__surtitre">Ce que nous gérons</p>
+        <h2 class="h2 domaines__titre">Nos domaines d'intervention</h2>
+        <ul class="domaines__liste">
+            <li class="domaine">
+              <a class="domaine__nom" href="communication.html"><span>Communication</span><span class="lien__icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+              <div class="domaine__image"><div class="vide "><span class="vide__etiquette">Image 16:9 à compléter</span></div></div>
+              <p class="domaine__texte">Identité visuelle, supports imprimés, site web, vidéo, réseaux sociaux… Nous vous mettons en relation avec les créatifs et les agences adaptés à votre taille et à votre budget, puis nous suivons la production jusqu'à la livraison.</p>
+            </li>
+            <li class="domaine">
+              <a class="domaine__nom" href="evenementiel.html"><span>Événementiel</span><span class="lien__icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+              <div class="domaine__image"><div class="vide "><span class="vide__etiquette">Image 16:9 à compléter</span></div></div>
+              <p class="domaine__texte">Séminaire, soirée d'entreprise, salon, lancement de produit : lieu, traiteur, technique, animation. Un seul interlocuteur coordonne tous les intervenants pour que le jour J se déroule sans fausse note.</p>
+            </li>
+            <li class="domaine">
+              <a class="domaine__nom" href="achats-specifiques.html"><span>Achats spécifiques</span><span class="lien__icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+              <div class="domaine__image"><div class="vide "><span class="vide__etiquette">Image 16:9 à compléter</span></div></div>
+              <p class="domaine__texte">Objets publicitaires, équipements, fournitures sur mesure ou besoins ponctuels difficiles à sourcer. Nous interrogeons notre réseau, comparons les devis et négocions pour vous le meilleur rapport qualité / prix / délai.</p>
+            </li>
+            <li class="domaine">
+              <a class="domaine__nom" href="amenagement.html"><span>Aménagement</span><span class="lien__icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+              <div class="domaine__image"><div class="vide "><span class="vide__etiquette">Image 16:9 à compléter</span></div></div>
+              <p class="domaine__texte">Bureaux, boutiques, espaces d'accueil : architectes d'intérieur, artisans, mobilier, signalétique. Nous réunissons les bons corps de métier et pilotons le chantier de A à Z.</p>
+            </li>
+            <li class="domaine">
+              <a class="domaine__nom" href="contact.html#projet"><span>Et bien plus…</span><span class="lien__icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+              <div class="domaine__image"><div class="vide "><span class="vide__etiquette">Image 16:9 à compléter</span></div></div>
+              <p class="domaine__texte">Votre besoin ne rentre dans aucune case ? C'est souvent là que notre réseau fait la différence. Parlez-nous de votre projet : nous savons probablement déjà qui appeler.</p>
+            </li>
+        </ul>
+      </div>
+      <div class="s__bas"></div>
+    </section>
+
+    <!-- 4. L'expérience Holeen Family -->
+    <section class="s s--marque experience" id="experience">
+      <span class="experience__filigrane" aria-hidden="true">✦</span>
+      <div class="s__haut"></div>
+      <div class="conteneur grille">
+        <p class="surtitre experience__surtitre">Notre approche</p>
+        <h2 class="h2 experience__titre">L'expérience Holeen Family</h2>
+        <div class="experience__gauche">
+          <p class="chapo" style="font-size:20px">
+            Chez Holeen Family, la relation compte autant que le résultat. Un bon carnet d'adresses ouvre des portes,
+            mais c'est l'accompagnement qui transforme une mise en relation en projet réussi.
+          </p>
+          <div class="experience__image"><div class="vide" data-animate="scale-in"><span class="vide__etiquette">Image 4:3 à compléter</span></div></div>
+        </div>
+        <div class="experience__droite">
+          <p class="chapo" style="font-size:20px">
+            Nous cadrons le besoin, choisissons les bons partenaires et restons à vos côtés avant, pendant et après
+            la réalisation. Vous gardez la main sur les décisions, nous nous occupons du reste.
+          </p>
+          <a class="lien" href="#processus">Découvrir notre approche<span class="lien__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        </div>
+      </div>
+      <div class="s__bas"></div>
+    </section>
+
+    <!-- 5. Pourquoi nous -->
+    <section class="s pourquoi" id="pourquoi">
+      <div class="s__haut"></div>
+      <div class="conteneur grille">
+        <p class="surtitre pourquoi__surtitre">Pourquoi nous choisir</p>
+        <div class="pourquoi__entete">
+          <h2 class="h2">Un réseau large, un suivi sur mesure</h2>
+          <p>
+            Des grands groupes aux pépites spécialisées, notre carnet d'adresses couvre tous les métiers.
+            Quel que soit votre projet, nous savons déjà qui appeler — et nous restons responsables du résultat.
+          </p>
+        </div>
+        <div class="pourquoi__cartes">
+            <article class="pourquoi__carte">
+              <div class="pourquoi__carte-haut">
+                <h3 class="h3">Un réseau très large</h3>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5v8l-9 5-9-5V8z"/><path d="M12 12l9-4M12 12v9M12 12L3 8"/></svg>
+              </div>
+              <ul><li>Grands groupes et indépendants</li><li>Tous secteurs d'activité</li><li>Prestataires testés et approuvés</li><li>Des pépites introuvables ailleurs</li></ul>
+            </article>
+            <article class="pourquoi__carte">
+              <div class="pourquoi__carte-haut">
+                <h3 class="h3">Du temps gagné</h3>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              </div>
+              <ul><li>Un seul interlocuteur</li><li>Devis comparés pour vous</li><li>Relances prises en charge</li><li>Reporting clair et régulier</li></ul>
+            </article>
+            <article class="pourquoi__carte">
+              <div class="pourquoi__carte-haut">
+                <h3 class="h3">Des économies réelles</h3>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 7.5A6 6 0 1 0 17 16.5M5 10.5h8M5 13.5h8"/></svg>
+              </div>
+              <ul><li>Tarifs négociés</li><li>Aucun surcoût pour vous</li><li>Meilleur rapport qualité / prix</li><li>Budget maîtrisé de bout en bout</li></ul>
+            </article>
+            <article class="pourquoi__carte">
+              <div class="pourquoi__carte-haut">
+                <h3 class="h3">Un pilotage complet</h3>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h2M10 12h10M4 18h8M16 18h4"/><circle cx="16" cy="6" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="14" cy="18" r="2"/></svg>
+              </div>
+              <ul><li>Cadrage du besoin</li><li>Coordination des intervenants</li><li>Suivi des délais</li><li>Contrôle à la livraison</li></ul>
+            </article>
+        </div>
+        <div class="pourquoi__image"><img src="section1-reseau.webp" alt="Holeen Family au centre de son réseau : industrie, IT &amp; digital, services, BTP, logistique, commerce, environnement" data-animate="scale-in" style="object-fit:contain;padding:24px" loading="lazy"></div>
+        <div class="pourquoi__note">
+          <p>
+            Nous ne prenons pas tous les projets. Si nous ne sommes pas les bons interlocuteurs, nous vous le dirons.
+            Ce que nous ne ferons jamais : bâcler un dossier, rogner sur la qualité ou vous laisser sans réponse.
+          </p>
+          <a class="lien" href="contact.html#projet">Nous confier un projet<span class="lien__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        </div>
+      </div>
+      <div class="s__bas"></div>
+    </section>
+
+    <!-- 6. Témoignages -->
+    <section class="s s--sombre temoignages" id="temoignages">
+      <div class="temoignages__cadre">
+        <div class="fond"><div class="fond__image vide vide--nuit" data-parallax data-parallax-start="-35" data-parallax-end="0"><span class="vide__etiquette">Visuel de fond à compléter</span></div></div>
+        <div class="conteneur grille temoignages__entete">
+          <p class="surtitre temoignages__surtitre">Témoignages</p>
+          <h2 class="h2 temoignages__titre">Ce qu'ils en disent</h2>
+          <p class="temoignages__mention">*témoignages à compléter</p>
+        </div>
+        <div class="temoignages__piste" id="temoignages-piste">
+          <figure class="temoignage verre">
+            <figcaption class="temoignage__nom">Prénom N. — Société</figcaption>
+            <blockquote class="temoignage__citation">« Témoignage client n°1 à compléter. »</blockquote>
+          </figure>
+          <figure class="temoignage verre">
+            <figcaption class="temoignage__nom">Prénom N. — Société</figcaption>
+            <blockquote class="temoignage__citation">« Témoignage client n°2 à compléter. »</blockquote>
+          </figure>
+          <figure class="temoignage verre">
+            <figcaption class="temoignage__nom">Prénom N. — Société</figcaption>
+            <blockquote class="temoignage__citation">« Témoignage client n°3 à compléter. »</blockquote>
+          </figure>
+          <figure class="temoignage verre">
+            <figcaption class="temoignage__nom">Prénom N. — Société</figcaption>
+            <blockquote class="temoignage__citation">« Témoignage client n°4 à compléter. »</blockquote>
+          </figure>
+          <figure class="temoignage verre">
+            <figcaption class="temoignage__nom">Prénom N. — Société</figcaption>
+            <blockquote class="temoignage__citation">« Témoignage client n°5 à compléter. »</blockquote>
+          </figure>
+          <figure class="temoignage verre">
+            <figcaption class="temoignage__nom">Prénom N. — Société</figcaption>
+            <blockquote class="temoignage__citation">« Témoignage client n°6 à compléter. »</blockquote>
+          </figure>
+        </div>
+        <div class="temoignages__commandes">
+          <div class="temoignages__points" id="temoignages-points"></div>
+          <div class="temoignages__fleches">
+            <button type="button" id="temoignages-prec" aria-label="Témoignage précédent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <button type="button" id="temoignages-suiv" aria-label="Témoignage suivant"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
+      </div>
+      <div class="s__bas" style="height:80px"></div>
+    </section>
+
+    <!-- 7. Processus -->
+    <section class="s processus" id="processus">
+      <div class="s__haut"></div>
+      <div class="conteneur grille" data-animate="stagger-up">
+        <p class="surtitre processus__surtitre">Comment ça marche</p>
+        <h2 class="h2 processus__titre">Trois étapes pour démarrer</h2>
+        <div class="processus__etapes">
+            <div class="etape">
+              <div class="etape__rang"><span>Étape</span><i></i><span>01</span></div>
+              <div class="etape__carte">
+                <div class="fond"><div class="fond__image vide vide--mer"><span class="vide__etiquette">Visuel à compléter</span></div></div>
+                <div class="etape__verre verre" data-animate="stagger-up-item">
+                  <h3 class="h3">Parlez-nous de votre projet</h3>
+                  <p>Un premier échange, gratuit et sans engagement. Nous écoutons votre besoin, vos contraintes, votre budget et vos délais.</p>
+                </div>
+              </div>
+            </div>
+            <div class="etape">
+              <div class="etape__rang"><span>Étape</span><i></i><span>02</span></div>
+              <div class="etape__carte">
+                <div class="fond"><div class="fond__image vide vide--nuit"><span class="vide__etiquette">Visuel à compléter</span></div></div>
+                <div class="etape__verre verre" data-animate="stagger-up-item">
+                  <h3 class="h3">Nous activons le réseau</h3>
+                  <p>Nous sélectionnons les prestataires les plus pertinents, comparons les propositions et vous présentons la meilleure option.</p>
+                </div>
+              </div>
+            </div>
+            <div class="etape">
+              <div class="etape__rang"><span>Étape</span><i></i><span>03</span></div>
+              <div class="etape__carte">
+                <div class="fond"><div class="fond__image vide vide--ciel"><span class="vide__etiquette">Visuel à compléter</span></div></div>
+                <div class="etape__verre verre" data-animate="stagger-up-item">
+                  <h3 class="h3">Nous pilotons, vous profitez</h3>
+                  <p>Coordination, suivi, relances, contrôle qualité : nous gérons la réalisation de A à Z jusqu'à la livraison.</p>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="s__bas"></div>
+    </section>
+
+    <!-- 8. Appel à l'action -->
+    <section class="s s--sombre" id="contact">
+      <div class="appel">
+        <div class="fond"><div class="fond__image vide vide--mer" data-parallax data-parallax-start="-35" data-parallax-end="0"><span class="vide__etiquette">Visuel de fond à compléter</span></div></div>
+        <div class="appel__carte verre">
+          <div class="appel__haut">
+            <p>Vous avez un projet en tête et pas le temps de chercher les bons prestataires ? La prochaine étape est simple : parlons-en.</p>
+            <svg viewBox="0 0 128 128" aria-hidden="true"><circle cx="64" cy="64" r="64" fill="rgba(248,244,238,.85)"/><g fill="none" stroke="#252525" stroke-width="2.5" stroke-linecap="round"><path d="M34 56c4 6 14 6 18 0M76 56c4 6 14 6 18 0M52 88c6 7 18 7 24 0"/></g></svg>
+          </div>
+          <a class="lien" href="contact.html#projet">Nous confier un projet<span class="lien__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          <p class="appel__phrase" data-highlight-text>Ne cherchez plus le bon prestataire. Laissez-le venir à vous.</p>
+        </div>
+      </div>
+      <div class="appel__bas"></div>
+    </section>
+
+    <!-- 9. Prestataires -->
+    <section class="s prestataires" id="rejoindre">
+      <div class="s__haut"></div>
+      <div class="conteneur grille">
+        <div class="prestataires__cote">
+          <p class="surtitre">Vous êtes prestataire</p>
+          <svg viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><path d="M50 0c4 28 22 46 50 50-28 4-46 22-50 50C46 72 28 54 0 50 28 46 46 28 50 0z"/></svg>
+        </div>
+        <h2 class="h2 prestataires__titre">Rejoignez le réseau</h2>
+        <div class="prestataires__gauche">
+          <p>Vous êtes indépendant, artisan, agence ou entreprise, et vous faites bien votre métier ? Nous cherchons en permanence de nouveaux talents à recommander à nos clients.</p>
+          <p>Intégrer le réseau Holeen Family, c'est recevoir des projets qualifiés, cadrés en amont, sans avoir à prospecter. Vous vous concentrez sur ce que vous savez faire, nous nous occupons de la relation client et de la coordination.</p>
+        </div>
+        <div class="prestataires__droite">
+          <p>Nous sélectionnons nos partenaires avec soin : sérieux, qualité et respect des délais sont nos seuls critères.</p>
+          <p>Présentez-nous votre activité — nous revenons vers vous rapidement.</p>
+          <a class="bouton" href="contact.html#rejoindre"><span class="bouton__texte">Rejoindre le réseau</span></a>
+        </div>
+      </div>
+      <div class="s__bas"></div>
+    </section>
+
+    <!-- 10. Pied de page -->
+    <footer class="pied">
+      <div class="grille pied__haut">
+        <div class="pied__lettre">
+          <label for="lettre-email">Recevez nos actualités :</label>
+          <form onsubmit="return false">
+            <input id="lettre-email" type="email" placeholder="prenom@societe.fr" autocomplete="email">
+            <button class="bouton bouton--clair" type="submit"><span class="bouton__texte">S'abonner</span></button>
+          </form>
+          <p style="margin-top:48px">Suivez-nous :</p>
+          <div class="pied__reseaux">
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.84-1.9 3.64-1.9 3.9 0 4.6 2.4 4.6 5.6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V21h-4z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          </div>
+        </div>
+        <nav class="pied__plan" aria-label="Plan du site">
+          <h2>Plan du site</h2>
+          <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#services">Notre rôle</a></li>
+            <li><a href="#domaines">Domaines</a></li>
+            <li><a href="#experience">Notre approche</a></li>
+            <li><a href="#pourquoi">Pourquoi nous</a></li>
+            <li><a href="#processus">Comment ça marche</a></li>
+            <li><a href="#rejoindre">Prestataires</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="pied__legal" aria-label="Mentions">
+          <h2>Légal</h2>
+          <ul>
+            <li><a href="#">Mentions légales</a></li>
+            <li><a href="#">Politique de confidentialité</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="pied__marque">
+        <img src="logo-crop.webp" alt="Holeen Family" width="1460" height="540" loading="lazy">
+      </div>
+      <div class="pied__bas">
+        <p>© <span id="annee">2026</span> Holeen Family. Tous droits réservés.</p>
+      </div>
+    </footer>
   </main>
 
   <canvas id="etincelles" aria-hidden="true" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999"></canvas>
 
-  <script>
-    // Bandeau défilant, déplaçable à la souris (adaptation vanilla de CurvedLoop)
-    (() => {
-      const VITESSE = 1.2;
+  <script src="menu.js"></script>
+  <script src="etincelles.js"></script>
 
-      const boucle = document.getElementById('boucle');
-      const mesure = boucle.querySelector('.boucle__mesure');
-      const chemin = boucle.querySelector('.boucle__texte');
-      const texte = boucle.dataset.texte.trim() + ' ';
-      const mouvementReduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      let pas = 0; // longueur d'une répétition du texte
-      let decalage = 0;
-      let sens = -1;
-      let saisie = false;
-      let dernierX = 0;
-      let vitesseGlisse = 0;
-
-      const appliquer = (valeur) => {
-        if (valeur <= -pas) valeur += pas;
-        if (valeur > 0) valeur -= pas;
-        decalage = valeur;
-        chemin.setAttribute('startOffset', decalage + 'px');
-      };
-
-      const preparer = () => {
-        mesure.textContent = texte;
-        pas = mesure.getComputedTextLength();
-        if (!pas) return;
-        chemin.textContent = texte.repeat(Math.ceil(1800 / pas) + 2);
-        appliquer(-pas);
-        boucle.classList.add('est-prete');
-      };
-
-      const avancer = () => {
-        if (!saisie && pas) appliquer(decalage + sens * VITESSE);
-        requestAnimationFrame(avancer);
-      };
-
-      // Les unités du SVG ne valent pas des pixels écran : on convertit le déplacement
-      const echelle = () => 1440 / boucle.querySelector('svg').getBoundingClientRect().width;
-
-      boucle.addEventListener('pointerdown', (e) => {
-        saisie = true;
-        dernierX = e.clientX;
-        vitesseGlisse = 0;
-        boucle.classList.add('est-saisie');
-        boucle.setPointerCapture(e.pointerId);
-      });
-
-      boucle.addEventListener('pointermove', (e) => {
-        if (!saisie) return;
-        const dx = (e.clientX - dernierX) * echelle();
-        dernierX = e.clientX;
-        vitesseGlisse = dx;
-        appliquer(decalage + dx);
-      });
-
-      const relacher = () => {
-        if (!saisie) return;
-        saisie = false;
-        boucle.classList.remove('est-saisie');
-        if (vitesseGlisse) sens = vitesseGlisse > 0 ? 1 : -1;
-      };
-      boucle.addEventListener('pointerup', relacher);
-      boucle.addEventListener('pointercancel', relacher);
-
-      // La mesure dépend de la police : on attend qu'elle soit chargée
-      (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => {
-        preparer();
-        if (!mouvementReduit) requestAnimationFrame(avancer);
-      });
-    })();
-  </script>
-
-  <script>
-    // Étincelles au clic (adaptation vanilla de ClickSpark)
-    (() => {
-      const COULEUR = '#d9a552'; // or moyen : lisible sur fond sombre comme sur fond crème
-      const TAILLE = 10;
-      const RAYON = 18;
-      const NOMBRE = 8;
-      const DUREE = 450;
-
-      const canvas = document.getElementById('etincelles');
-      const ctx = canvas.getContext('2d');
-      let etincelles = [];
-      let enCours = false;
-
-      const redimensionner = () => {
-        const dpr = window.devicePixelRatio || 1;
-        canvas.width = window.innerWidth * dpr;
-        canvas.height = window.innerHeight * dpr;
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      };
-      redimensionner();
-      window.addEventListener('resize', redimensionner);
-
-      const dessiner = (temps) => {
-        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
-        etincelles = etincelles.filter((e) => {
-          const ecoule = temps - e.debut;
-          if (ecoule >= DUREE) return false;
-
-          const t = Math.max(0, ecoule / DUREE);
-          const adouci = t * (2 - t); // ease-out
-          const distance = adouci * RAYON;
-          const longueur = TAILLE * (1 - adouci);
-          const cos = Math.cos(e.angle);
-          const sin = Math.sin(e.angle);
-
-          ctx.strokeStyle = COULEUR;
-          ctx.lineWidth = 2;
-          ctx.lineCap = 'round';
-          ctx.beginPath();
-          ctx.moveTo(e.x + distance * cos, e.y + distance * sin);
-          ctx.lineTo(e.x + (distance + longueur) * cos, e.y + (distance + longueur) * sin);
-          ctx.stroke();
-          return true;
-        });
-
-        if (etincelles.length) {
-          requestAnimationFrame(dessiner);
-        } else {
-          enCours = false;
-        }
-      };
-
-      window.addEventListener('pointerdown', (ev) => {
-        const debut = performance.now();
-        for (let i = 0; i < NOMBRE; i++) {
-          etincelles.push({ x: ev.clientX, y: ev.clientY, angle: (2 * Math.PI * i) / NOMBRE, debut });
-        }
-        if (!enCours) {
-          enCours = true;
-          requestAnimationFrame(dessiner);
-        }
-      });
-    })();
-  </script>
-
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Observer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.17/dist/lenis.min.js"></script>
+  <script src="sections.js"></script>
 </body>
 </html>

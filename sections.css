@@ -1,0 +1,716 @@
+/* ==========================================================================
+   Sections sous le header — structure, grille et typographie
+   ========================================================================== */
+
+.site {
+  --creme: #f8f4ee;
+  --encre: #252525;
+  --marque: #5f3c12;
+  --verre: rgba(248, 244, 238, .05);
+  --marge: 32px;
+  --titre: "Kufam", Tahoma, sans-serif;
+  --corps: "Overpass", Verdana, sans-serif;
+
+  background: var(--creme);
+  color: var(--encre);
+  font-family: var(--corps);
+  font-size: 15px;
+  line-height: 1.45;
+  letter-spacing: .0162em;
+}
+
+/* Défilement fluide (Lenis) */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* Barre de progression de lecture */
+.progression {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 9998;
+  height: 4px;
+  pointer-events: none;
+}
+
+.progression__barre {
+  height: 100%;
+  background: var(--or, #d9a552);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+/* ---------- Briques communes ---------- */
+.s { position: relative; }
+.s--sombre { background: var(--encre); color: var(--creme); }
+.s--marque { background: var(--marque); color: var(--creme); overflow: hidden; }
+
+.s__haut { height: 80px; }
+.s__bas { height: 112px; }
+
+.conteneur {
+  position: relative;
+  margin: 0 var(--marge);
+}
+
+.grille {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 32px;
+}
+
+.surtitre {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+
+.surtitre::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.h2 {
+  font-family: var(--titre);
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -.0162em;
+}
+
+.h3 {
+  font-family: var(--titre);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -.0162em;
+}
+
+.chapo {
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+/* Bouton plein (petit, rectangulaire) : les lettres défilent au survol */
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 4px;
+  background: var(--encre);
+  color: var(--creme);
+  border: 0;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1;
+  letter-spacing: inherit;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.bouton--clair { background: var(--creme); color: var(--encre); }
+
+.bouton__texte { display: inline-block; padding-top: .15em; }
+
+.bouton .lettre {
+  display: inline-block;
+  text-shadow: 0 1.4em currentColor;
+  transition: transform .45s cubic-bezier(.65, .01, .05, .99);
+}
+
+.bouton:hover .lettre { transform: translateY(-1.4em); }
+
+/* Lien en majuscules + flèche cerclée */
+.lien {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+}
+
+.lien__icone {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  transition: background .3s, color .3s;
+}
+
+.lien__icone svg { width: 16px; height: 16px; }
+
+.lien:hover .lien__icone { background: currentColor; }
+.lien:hover .lien__icone svg { color: var(--creme); }
+.s--sombre .lien:hover .lien__icone svg,
+.s--marque .lien:hover .lien__icone svg,
+.verre .lien:hover .lien__icone svg { color: var(--encre); }
+
+/* Carte « verre » floutée */
+.verre {
+  background: var(--verre);
+  border: 1px solid rgba(248, 244, 238, .45);
+  border-radius: 4px;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: var(--creme);
+}
+
+/* Fond en parallaxe : plus haut que son cadre, il glisse au défilement */
+.fond {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+/* Sélecteur renforcé : la hauteur doit l'emporter sur celle des emplacements vides */
+.fond .fond__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 135%;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Emplacements à compléter (images / vidéos) */
+.vide {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background:
+    repeating-linear-gradient(135deg, rgba(37, 37, 37, .05) 0 12px, transparent 12px 24px),
+    linear-gradient(160deg, #d8c8ae, #b99a72);
+  color: rgba(37, 37, 37, .7);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.vide--ciel { background: linear-gradient(180deg, #8d8372 0%, #c08a62 38%, #8a6a45 62%, #3f3524 100%); color: rgba(248, 244, 238, .75); }
+.vide--nuit { background: linear-gradient(180deg, #2b3448 0%, #55506a 45%, #8a6f66 70%, #33302b 100%); color: rgba(248, 244, 238, .75); }
+.vide--mer { background: linear-gradient(120deg, #39514f 0%, #6f8f8a 45%, #d8a67a 78%, #e9c49a 100%); color: rgba(248, 244, 238, .8); }
+
+.vide__etiquette {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 6px 10px;
+  border-radius: 3px;
+  background: rgba(37, 37, 37, .55);
+  color: var(--creme);
+}
+
+/* ---------- 1. Logos du réseau (défilement, déplaçable) ---------- */
+.logos { padding: 80px 0 64px; text-align: center; overflow: hidden; }
+
+.logos__piste {
+  display: flex;
+  margin-top: 56px;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.logos__piste.est-saisie { cursor: grabbing; }
+
+.logos__panneau {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 96px;
+  padding-right: 96px;
+}
+
+.logos__panneau img {
+  flex: none;
+  height: 64px;
+  width: auto;
+  max-width: 190px;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.1);
+  opacity: .8;
+  pointer-events: none;
+}
+
+/* ---------- 2. Ce que nous faisons ---------- */
+.offre__cadre {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  margin: 0 var(--marge);
+  padding: 48px 32px 32px;
+  border-radius: 8px;
+  background: var(--encre);
+  color: var(--creme);
+  overflow: hidden;
+}
+
+.offre__cadre > *:not(.fond) { position: relative; }
+
+.offre__entete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.offre__entete .h2 { max-width: 640px; text-wrap: balance; }
+.offre__entete p { max-width: 610px; }
+
+.offre__boutons { display: flex; gap: 16px; margin-top: 8px; }
+
+.offre__cartes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.offre__carte {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-height: 303px;
+  padding: 32px;
+}
+
+.offre__carte-haut {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.offre__carte-haut svg { flex: none; width: 44px; height: 44px; }
+.offre__carte .lien { margin-top: auto; }
+
+/* Rangée vide de la hauteur des cartes : laisse voir le visuel, slogan en bas à droite */
+.offre__slogan {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  min-height: 303px;
+  font-family: var(--titre);
+  font-size: clamp(34px, 4.6vw, 66px);
+  line-height: 1.08;
+  letter-spacing: -.02em;
+  text-align: right;
+}
+
+/* ---------- 3. Domaines (liste à révélation) ---------- */
+.domaines__surtitre { grid-column: 1 / span 2; padding-top: 12px; align-self: start; }
+.domaines__titre { grid-column: 3 / -1; margin-bottom: 40px; }
+.domaines__liste { grid-column: 3 / -1; list-style: none; border-top: 1px solid var(--encre); }
+
+.domaine {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  column-gap: 32px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--encre);
+}
+
+.domaine__nom {
+  grid-column: 1 / span 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 15px;
+}
+
+.domaine__image {
+  grid-column: 3 / span 3;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--encre);
+}
+
+.domaine__texte { grid-column: 6 / -1; align-self: end; }
+
+/* ---------- 4. L'expérience (fond de marque) ---------- */
+.experience__filigrane {
+  position: absolute;
+  top: -8%;
+  right: -6%;
+  font-size: min(78vw, 1100px);
+  line-height: 1;
+  color: rgba(248, 244, 238, .06);
+  pointer-events: none;
+  user-select: none;
+}
+
+.experience__surtitre { grid-column: 1 / span 2; padding-top: 12px; align-self: start; }
+.experience__titre { grid-column: 3 / -1; margin-bottom: 40px; }
+.experience__gauche { grid-column: 3 / span 5; display: flex; flex-direction: column; gap: 24px; }
+.experience__droite { grid-column: 8 / -1; align-self: end; display: flex; flex-direction: column; align-items: flex-start; gap: 40px; }
+
+.experience__image {
+  aspect-ratio: 4 / 3;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.experience__image > * { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- 5. Pourquoi nous ---------- */
+.pourquoi__surtitre { grid-column: 1 / span 2; padding-top: 12px; align-self: start; }
+.pourquoi__entete { grid-column: 8 / -1; display: flex; flex-direction: column; gap: 32px; margin-bottom: 24px; }
+.pourquoi__cartes { grid-column: 3 / span 5; display: flex; flex-direction: column; gap: 24px; }
+
+.pourquoi__carte {
+  flex: 1;
+  padding: 24px;
+  border: 1px solid var(--encre);
+  border-radius: 4px;
+}
+
+.pourquoi__carte-haut {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.pourquoi__carte-haut svg { flex: none; width: 24px; height: 24px; }
+
+.pourquoi__carte ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 32px;
+  padding-left: 16px;
+}
+
+.pourquoi__image {
+  grid-column: 8 / -1;
+  min-height: 640px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.pourquoi__image > * { width: 100%; height: 100%; object-fit: cover; }
+
+.pourquoi__note {
+  grid-column: 3 / span 5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  margin-top: 24px;
+}
+
+/* ---------- 6. Témoignages ---------- */
+.temoignages { overflow: hidden; }
+.temoignages__cadre { position: relative; padding: 112px 0 32px; }
+.temoignages__cadre > *:not(.fond) { position: relative; }
+
+.temoignages__entete { align-items: baseline; margin-bottom: 40px; }
+.temoignages__surtitre { grid-column: 1 / span 2; align-self: center; }
+.temoignages__titre { grid-column: 3 / span 6; }
+.temoignages__mention { grid-column: 9 / -1; text-align: right; font-size: 13px; }
+
+.temoignages__piste {
+  display: flex;
+  gap: 16px;
+  padding: 0 var(--marge);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: var(--marge);
+  scrollbar-width: none;
+}
+
+.temoignages__piste::-webkit-scrollbar { display: none; }
+
+.temoignage {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  width: min(393px, 82vw);
+  min-height: 296px;
+  padding: 32px;
+  scroll-snap-align: start;
+  border-color: transparent;
+  background: rgba(37, 37, 37, .45);
+}
+
+.temoignage__nom { font-size: 17px; }
+
+.temoignage__citation {
+  font-family: var(--titre);
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: -.0162em;
+}
+
+.temoignages__commandes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 24px var(--marge) 0;
+}
+
+.temoignages__points { display: flex; align-items: center; gap: 8px; }
+
+.temoignages__points button {
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--creme);
+  cursor: pointer;
+  transition: transform .3s;
+}
+
+.temoignages__points button.est-actif { transform: scale(2); }
+
+.temoignages__fleches { display: flex; gap: 8px; }
+
+.temoignages__fleches button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--creme);
+  color: var(--encre);
+  cursor: pointer;
+  transition: opacity .3s;
+}
+
+.temoignages__fleches button:disabled { opacity: .45; cursor: default; }
+.temoignages__fleches svg { width: 14px; height: 14px; }
+
+/* ---------- 7. Processus ---------- */
+.processus__surtitre { grid-column: 1 / span 2; padding-top: 12px; align-self: start; }
+.processus__titre { grid-column: 3 / -1; margin-bottom: 48px; }
+
+.processus__etapes {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.etape__rang {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.etape__rang i {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+}
+
+.etape__rang i::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -3px;
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.etape__carte {
+  position: relative;
+  min-height: 480px;
+  padding: 32px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.etape__carte .fond .fond__image { height: 100%; }
+
+.etape__verre {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 28px 30px 32px;
+}
+
+.etape__verre .h3 { font-size: 26px; line-height: 1.2; }
+.etape__verre p { font-size: 17px; }
+
+/* ---------- 8. Appel à l'action ---------- */
+.appel {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: 112px var(--marge);
+  overflow: hidden;
+}
+
+.appel__carte {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  width: min(672px, 100%);
+  padding: 64px;
+  border-radius: 8px;
+}
+
+.appel__haut { display: flex; justify-content: space-between; gap: 48px; }
+.appel__haut p { max-width: 340px; font-size: 20px; line-height: 1.4; }
+.appel__haut svg { flex: none; width: 128px; height: 128px; }
+
+.appel__phrase {
+  font-family: var(--titre);
+  font-size: 34px;
+  line-height: 1.2;
+  letter-spacing: -.0162em;
+}
+
+.appel__bas { height: 112px; background: var(--encre); }
+
+/* ---------- 9. Prestataires ---------- */
+.prestataires__cote { grid-column: 1 / span 2; display: flex; flex-direction: column; gap: 48px; padding-top: 12px; align-self: start; }
+.prestataires__cote svg { width: 128px; height: auto; color: rgba(37, 37, 37, .16); }
+.prestataires__titre { grid-column: 3 / -1; margin-bottom: 48px; }
+.prestataires__gauche { grid-column: 3 / span 5; display: flex; flex-direction: column; gap: 22px; }
+.prestataires__droite { grid-column: 8 / -1; align-self: end; display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
+
+/* ---------- 10. Pied de page ---------- */
+.pied { padding: 112px var(--marge) 32px; background: var(--encre); color: var(--creme); }
+
+.pied__haut { row-gap: 64px; padding-bottom: 80px; border-bottom: 1px solid rgba(248, 244, 238, .15); }
+.pied__lettre { grid-column: 1 / span 5; display: flex; flex-direction: column; gap: 20px; }
+.pied__lettre form { display: flex; gap: 16px; }
+
+.pied__lettre input {
+  width: 206px;
+  padding: 10px 14px;
+  border: 1px solid rgba(248, 244, 238, .5);
+  border-radius: 3px;
+  background: rgba(248, 244, 238, .08);
+  color: var(--creme);
+  font: inherit;
+}
+
+.pied__lettre input::placeholder { color: rgba(248, 244, 238, .45); }
+.pied__reseaux { display: flex; gap: 16px; margin-top: 8px; }
+.pied__reseaux svg { width: 24px; height: 24px; }
+
+.pied__plan { grid-column: 9 / span 2; }
+.pied__legal { grid-column: 11 / span 2; }
+
+.pied__plan h2, .pied__legal h2 {
+  margin-bottom: 16px;
+  font-size: 15px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: rgba(248, 244, 238, .45);
+}
+
+.pied__plan ul, .pied__legal ul { display: flex; flex-direction: column; gap: 12px; list-style: none; }
+.pied a:hover { color: var(--or, #d9a552); }
+
+.pied__marque {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 72px 0;
+}
+
+.pied__marque img { height: clamp(72px, 9vw, 120px); width: auto; }
+
+.pied__bas {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: rgba(248, 244, 238, .5);
+}
+
+/* ---------- Adaptation tablette / mobile ---------- */
+@media (max-width: 991px) {
+  .site { --marge: 16px; }
+  .s__haut { height: 56px; }
+  .s__bas { height: 72px; }
+  .grille { column-gap: 16px; }
+
+  .logos__panneau { gap: 56px; padding-right: 56px; }
+  .logos__panneau img { height: 44px; max-width: 140px; }
+
+  .offre__cadre { padding: 40px 16px 16px; gap: 40px; }
+  .offre__cartes { grid-template-columns: 1fr; gap: 16px; }
+  .offre__carte { min-height: 0; }
+  .offre__slogan { min-height: 220px; }
+
+  .domaines__surtitre, .experience__surtitre, .pourquoi__surtitre,
+  .processus__surtitre, .temoignages__surtitre { grid-column: 1 / -1; padding-top: 0; margin-bottom: 16px; }
+
+  .domaines__titre, .domaines__liste,
+  .experience__titre, .experience__gauche, .experience__droite,
+  .pourquoi__entete, .pourquoi__cartes, .pourquoi__image, .pourquoi__note,
+  .processus__titre, .temoignages__titre, .temoignages__mention,
+  .prestataires__cote, .prestataires__titre, .prestataires__gauche, .prestataires__droite,
+  .pied__lettre, .pied__plan, .pied__legal { grid-column: 1 / -1; }
+
+  .domaine { grid-template-columns: 1fr; row-gap: 16px; }
+  .domaine__nom, .domaine__image, .domaine__texte { grid-column: 1 / -1; }
+
+  .experience__droite { margin-top: 32px; }
+  .pourquoi__entete { order: -1; }
+  .pourquoi__image { min-height: 0; aspect-ratio: 3 / 4; margin-top: 24px; }
+  .pourquoi__carte ul { grid-template-columns: 1fr; }
+
+  .temoignages__mention { text-align: left; margin-top: 8px; }
+  .processus__etapes { grid-template-columns: 1fr; }
+  .etape__carte { min-height: 400px; padding: 16px; }
+
+  .appel { padding: 72px var(--marge); }
+  .appel__carte { padding: 32px; gap: 40px; }
+  .appel__haut svg { width: 72px; height: 72px; }
+  .appel__phrase { font-size: 26px; }
+
+  .prestataires__cote svg { display: none; }
+  .prestataires__droite { margin-top: 8px; }
+
+  .pied { padding-top: 72px; }
+  .pied__plan, .pied__legal { grid-column: span 6; }
+  .pied__marque { flex-direction: column; align-items: flex-start; }
+  .pied__bas { flex-direction: column; }
+  .h2 { font-size: 28px; }
+}
+
+/* Les noms de domaines sont des liens vers leur page */
+a.domaine__nom:hover .lien__icone { background: var(--encre); }
+a.domaine__nom:hover .lien__icone svg { color: var(--creme); }
+a.domaine__nom .lien__icone { flex: none; transition: background .3s; }
+
+/* Masque des titres animés : de la marge en haut pour ne pas rogner les accents des capitales */
+.ligne-mask { padding-top: .22em; margin-top: -.22em; padding-bottom: .1em; margin-bottom: -.1em; }
