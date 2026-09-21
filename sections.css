@@ -373,9 +373,11 @@ html.lenis, html.lenis body { height: auto; }
 .experience__image > * { width: 100%; height: 100%; object-fit: cover; }
 
 /* ---------- 5. Pourquoi nous ---------- */
-.pourquoi__surtitre { grid-column: 1 / span 2; padding-top: 12px; align-self: start; }
-.pourquoi__entete { grid-column: 8 / -1; display: flex; flex-direction: column; gap: 32px; margin-bottom: 24px; }
-.pourquoi__cartes { grid-column: 3 / span 5; display: flex; flex-direction: column; gap: 24px; }
+/* Deux blocs « carrés » : les cases à gauche, et à droite titre + texte + schéma
+   étirés sur exactement la même hauteur (haut et bas alignés). */
+.pourquoi__surtitre { grid-column: 1 / span 4; grid-row: 1; align-self: start; margin-bottom: 32px; }
+.pourquoi__entete { grid-column: 8 / -1; grid-row: 2; display: flex; flex-direction: column; gap: 24px; margin-bottom: 24px; }
+.pourquoi__cartes { grid-column: 2 / span 6; grid-row: 2 / span 2; display: flex; flex-direction: column; gap: 24px; }
 
 .pourquoi__carte {
   flex: 1;
@@ -400,17 +402,21 @@ html.lenis, html.lenis body { height: auto; }
   padding-left: 16px;
 }
 
+/* Le schéma remplit ce qui reste de hauteur sous le texte, sans jamais l'agrandir */
 .pourquoi__image {
+  position: relative;
   grid-column: 8 / -1;
-  min-height: 640px;
+  grid-row: 3;
+  min-height: 320px;
   border-radius: 4px;
   overflow: hidden;
 }
 
-.pourquoi__image > * { width: 100%; height: 100%; object-fit: cover; }
+.pourquoi__image > * { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
 .pourquoi__note {
-  grid-column: 3 / span 5;
+  grid-column: 2 / span 6;
+  grid-row: 4;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -684,8 +690,10 @@ html.lenis, html.lenis body { height: auto; }
   .domaine__nom, .domaine__image, .domaine__texte { grid-column: 1 / -1; }
 
   .experience__droite { margin-top: 32px; }
+  .pourquoi__surtitre, .pourquoi__entete, .pourquoi__cartes, .pourquoi__image, .pourquoi__note { grid-row: auto; }
+  .pourquoi__surtitre { order: -2; }
   .pourquoi__entete { order: -1; }
-  .pourquoi__image { min-height: 0; aspect-ratio: 3 / 4; margin-top: 24px; }
+  .pourquoi__image { min-height: 0; aspect-ratio: 1 / 1; margin-top: 24px; }
   .pourquoi__carte ul { grid-template-columns: 1fr; }
 
   .temoignages__mention { text-align: left; margin-top: 8px; }
@@ -717,3 +725,8 @@ a.domaine__nom .lien__icone { flex: none; transition: background .3s; }
 
 /* Vignettes des domaines : l'image remplit son cadre 16:9 */
 .domaine__image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* Section « Pourquoi nous » : marges resserrées pour ne pas laisser de vide */
+.pourquoi .s__haut { height: 64px; }
+.pourquoi .s__bas { height: 80px; }
+.pourquoi__note { gap: 32px; }
