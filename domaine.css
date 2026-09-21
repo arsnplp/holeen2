@@ -120,19 +120,51 @@ a { color: inherit; text-decoration: none; }
 .prestation span { grid-row: span 2; padding-top: 6px; font-size: 11px; color: #9a6424; }
 .prestation p { color: rgba(37, 37, 37, .75); }
 
-/* ---------- Visuel pleine largeur ---------- */
+/* ---------- Visuel + passage à l'action ---------- */
+/* Même grille que les autres sections (surtitre / titre / côté), posée sur la photo */
 .visuel {
   position: relative;
-  height: min(72svh, 640px);
+  min-height: min(86svh, 760px);
   margin: 0 32px;
   border-radius: 8px;
   overflow: hidden;
+  color: #fff;
 }
 
-/* ---------- Appel à l'action ---------- */
-.relance__surtitre { grid-column: 1 / span 2; padding-top: 12px; align-self: start; }
-.relance__titre { grid-column: 3 / span 6; font-size: clamp(34px, 4.6vw, 64px); line-height: 1.08; letter-spacing: -.02em; }
-.relance__cote { grid-column: 10 / -1; align-self: end; display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+/* Voile sombre : plus marqué à gauche sous le titre, léger sur le sujet à droite */
+.visuel__voile {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(11, 8, 6, .6) 0%, rgba(11, 8, 6, .32) 50%, rgba(11, 8, 6, .22) 100%),
+    linear-gradient(180deg, rgba(11, 8, 6, .35) 0%, rgba(11, 8, 6, 0) 55%);
+}
+
+.visuel__contenu {
+  position: relative;
+  padding: 80px 32px;
+}
+
+.visuel__surtitre { grid-column: 1 / span 2; padding-top: 12px; align-self: start; }
+
+.visuel__titre {
+  grid-column: 3 / span 6;
+  font-size: clamp(34px, 4.6vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -.02em;
+}
+
+.visuel__cote {
+  grid-column: 10 / -1;
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  text-shadow: 0 1px 14px rgba(11, 8, 6, .55);
+}
+
+.visuel .lien:hover .lien__icone svg { color: var(--encre); }
 
 /* ---------- Autres domaines ---------- */
 .autres__surtitre { grid-column: 1 / span 2; padding-top: 12px; align-self: start; }
@@ -171,14 +203,18 @@ a { color: inherit; text-decoration: none; }
   .entete__etoile { width: 90vw; right: -30%; }
 
   .prestations__surtitre, .prestations__entete, .prestations__liste,
-  .relance__surtitre, .relance__titre, .relance__cote,
   .autres__surtitre, .autres__liste { grid-column: 1 / -1; }
 
-  .prestations__surtitre, .relance__surtitre, .autres__surtitre { padding-top: 0; margin-bottom: 16px; }
+  .prestations__surtitre, .autres__surtitre { padding-top: 0; margin-bottom: 16px; }
   .prestations__entete { grid-template-columns: 1fr; row-gap: 16px; margin-bottom: 32px; }
   .prestations__entete .h2, .prestations__entete p { grid-column: 1 / -1; }
   .prestations__liste { grid-template-columns: 1fr; }
-  .visuel { margin: 0 16px; height: 46svh; }
-  .relance__cote { margin-top: 32px; }
+  .visuel { margin: 0 16px; min-height: 70svh; }
+  .visuel__contenu { padding: 32px 20px; }
+  .visuel__surtitre, .visuel__titre, .visuel__cote { grid-column: 1 / -1; }
+  .visuel__surtitre { padding-top: 0; margin-bottom: 16px; }
+  .visuel__cote { margin-top: 32px; }
+  /* Sur petit écran le texte passe devant le sujet : voile uniforme */
+  .visuel__voile { background: rgba(11, 8, 6, .5); }
   .pied--court .pied__marque { flex-direction: column; align-items: flex-start; }
 }

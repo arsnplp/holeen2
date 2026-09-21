@@ -196,7 +196,13 @@ const demarrerSections = () => {
       autoSplit: true,
       onSplit(decoupe) {
         return gsap.timeline({
-          scrollTrigger: { trigger: phrase, start: 'top 90%', end: 'center 40%', scrub: true },
+          // Début et fin réglables par attribut, pour caler l'effet sur la mise en page
+          scrollTrigger: {
+            trigger: phrase,
+            start: phrase.dataset.highlightStart || 'top 90%',
+            end: phrase.dataset.highlightEnd || 'center 40%',
+            scrub: true,
+          },
         }).from(decoupe.chars, { autoAlpha: 0.1, stagger: 0.3, ease: 'linear' });
       },
     });

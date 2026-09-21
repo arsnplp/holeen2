@@ -714,3 +714,6 @@ a.domaine__nom .lien__icone { flex: none; transition: background .3s; }
 
 /* Masque des titres animés : de la marge en haut pour ne pas rogner les accents des capitales */
 .ligne-mask { padding-top: .22em; margin-top: -.22em; padding-bottom: .1em; margin-bottom: -.1em; }
+
+/* Vignettes des domaines : l'image remplit son cadre 16:9 */
+.domaine__image img { display: block; width: 100%; height: 100%; object-fit: cover; }
