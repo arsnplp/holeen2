@@ -737,3 +737,20 @@ a.domaine__nom .lien__icone { flex: none; transition: background .3s; }
   inset: 0;
   background: linear-gradient(180deg, rgba(37, 37, 37, .55) 0%, rgba(37, 37, 37, .35) 45%, rgba(37, 37, 37, .15) 100%);
 }
+
+/* ---------- Coordonnées directes (téléphone + e-mail) ---------- */
+.direct { display: flex; flex-direction: column; gap: 10px; }
+.direct__intro { font-size: 13px; color: rgba(248, 244, 238, .6); }
+.direct__ligne { display: inline-flex; align-items: center; gap: 12px; align-self: flex-start; font-size: 17px; transition: color .25s; }
+.direct__ligne svg { width: 20px; height: 20px; flex: none; color: var(--or, #d9a552); }
+.direct__ligne:hover { color: var(--or-clair, #f6dc95); }
+
+/* Sur fond clair */
+.volet__bloc.direct .direct__intro { color: rgba(37, 37, 37, .6); }
+.volet__bloc.direct .direct__ligne { color: #252525; }
+.volet__bloc.direct .direct__ligne svg { color: #9a6424; }
+.volet__bloc.direct .direct__ligne:hover { color: #9a6424; }
+
+/* Pied de page : les deux blocs de droite se rangent côte à côte */
+.pied__marque { flex-wrap: wrap; }
+.pied__marque > .direct { margin-left: auto; }
