@@ -591,7 +591,7 @@ html.lenis, html.lenis body { height: auto; }
 
 .appel__haut { display: flex; justify-content: space-between; gap: 48px; }
 .appel__haut p { max-width: 340px; font-size: 20px; line-height: 1.4; }
-.appel__haut svg { flex: none; width: 128px; height: 128px; }
+.appel__haut > svg { flex: none; width: 128px; height: 128px; }
 
 .appel__phrase {
   font-family: var(--titre);
@@ -701,7 +701,7 @@ html.lenis, html.lenis body { height: auto; }
 
   .appel { padding: 72px var(--marge); }
   .appel__carte { padding: 32px; gap: 40px; }
-  .appel__haut svg { width: 72px; height: 72px; }
+  .appel__haut > svg { width: 72px; height: 72px; }
   .appel__phrase { font-size: 26px; }
 
   .prestataires__cote svg { display: none; }
@@ -754,3 +754,6 @@ a.domaine__nom .lien__icone { flex: none; transition: background .3s; }
 /* Pied de page : les deux blocs de droite se rangent côte à côte */
 .pied__marque { flex-wrap: wrap; }
 .pied__marque > .direct { margin-left: auto; }
+
+/* Les icônes téléphone / e-mail gardent leur taille partout */
+.direct__ligne svg { width: 20px !important; height: 20px !important; }
