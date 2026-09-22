@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact — Holeen Family</title>
-  <meta name="description" content="Confiez-nous votre projet ou rejoignez notre réseau de prestataires. Un seul interlocuteur, sans aucun surcoût.">
+  <meta name="description" content="Confiez-nous votre projet ou devenez apporteur d'affaires et touchez une commission à chaque contrat signé. Un seul interlocuteur, sans aucun surcoût.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&family=Kufam:wght@400;500&family=Overpass:wght@400;700&display=swap" rel="stylesheet">
@@ -47,9 +47,9 @@
         </a>
         <a class="choix__carte verre" href="#rejoindre" data-animate="stagger-up-item">
           <span class="choix__rang">02</span>
-          <span class="choix__titre">Je veux rejoindre le réseau</span>
-          <span class="choix__texte">Vous êtes prestataire et vous voulez recevoir des projets qualifiés, sans prospecter.</span>
-          <span class="lien">Rejoindre le réseau<span class="lien__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></span>
+          <span class="choix__titre">Je connais un projet à proposer</span>
+          <span class="choix__texte">Vous nous apportez un projet, nous le réalisons, et vous touchez une commission à chaque contrat signé.</span>
+          <span class="lien">Espace apporteurs d'affaires<span class="lien__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></span>
         </a>
       </div>
     </div>
@@ -151,23 +151,24 @@
       <div class="s__bas"></div>
     </section>
 
-    <!-- 2. Rejoindre le réseau -->
+    <!-- 2. Apporteurs d'affaires -->
     <section class="s s--marque" id="rejoindre">
       <span class="experience__filigrane" aria-hidden="true">✦</span>
       <div class="s__haut"></div>
       <div class="conteneur grille">
-        <p class="surtitre volet__surtitre">Prestataires</p>
-        <h2 class="h2 volet__titre">Rejoignez le réseau</h2>
+        <p class="surtitre volet__surtitre">Apporteurs d'affaires</p>
+        <h2 class="h2 volet__titre">Espace apporteurs d'affaires</h2>
 
         <aside class="volet__cote volet__cote--gauche">
           <p class="chapo" style="font-size:20px">
-            Indépendant, artisan, agence ou entreprise : si vous faites bien votre métier, nous voulons vous connaître.
+            Vous connaissez une entreprise qui a un projet ? Proposez-le-nous : nous le réalisons, et vous touchez
+            une commission à chaque contrat signé grâce à votre mise en relation.
           </p>
           <ul class="atouts">
-            <li>Des projets qualifiés, cadrés en amont</li>
-            <li>Zéro prospection : nous gérons la relation client</li>
-            <li>Un seul interlocuteur pour la coordination</li>
-            <li>Une sélection sur trois critères : sérieux, qualité, délais</li>
+            <li>Vous proposez, nous prenons le relais</li>
+            <li>Une commission à chaque contrat signé</li>
+            <li>Aucune démarche à gérer après la mise en relation</li>
+            <li>Ce ne sera pas chez nous que vous ne serez pas récompensé pour vos efforts</li>
           </ul>
         </aside>
 
@@ -178,8 +179,8 @@
               <span>Nom et prénom *</span>
             </label>
             <label class="champ" data-animate="stagger-up-item">
-              <input type="text" name="societe" placeholder=" " autocomplete="organization" required>
-              <span>Société / enseigne *</span>
+              <input type="text" name="societe" placeholder=" " autocomplete="organization">
+              <span>Votre société (si vous en avez une)</span>
             </label>
             <label class="champ" data-animate="stagger-up-item">
               <input type="email" name="email" placeholder=" " autocomplete="email" required>
@@ -192,7 +193,7 @@
           </div>
 
           <fieldset class="pastilles">
-            <legend>Votre secteur</legend>
+            <legend>Le projet concerne…</legend>
             <label><input type="checkbox" name="secteur" value="Communication"><span>Communication</span></label>
             <label><input type="checkbox" name="secteur" value="Événementiel"><span>Événementiel</span></label>
             <label><input type="checkbox" name="secteur" value="Aménagement"><span>Aménagement</span></label>
@@ -208,27 +209,27 @@
 
           <div class="formulaire__rang">
             <label class="champ">
-              <input type="text" name="zone" placeholder=" ">
-              <span>Zone d'intervention</span>
+              <input type="text" name="entreprise" placeholder=" ">
+              <span>Entreprise concernée par le projet</span>
             </label>
             <label class="champ">
-              <input type="url" name="site" placeholder=" " autocomplete="url">
-              <span>Site web ou portfolio</span>
+              <input type="text" name="lien" placeholder=" ">
+              <span>Votre lien avec cette entreprise</span>
             </label>
           </div>
 
           <label class="champ champ--zone">
             <textarea name="message" rows="5" placeholder=" " required></textarea>
-            <span>Présentez votre activité et vos références *</span>
+            <span>Décrivez le projet en quelques lignes *</span>
           </label>
 
           <label class="accord">
             <input type="checkbox" name="accord" required>
-            <span>J'accepte que Holeen Family utilise ces informations pour étudier ma candidature et me recontacter.</span>
+            <span>J'accepte que Holeen Family utilise ces informations pour étudier le projet proposé et me recontacter.</span>
           </label>
 
           <div class="formulaire__bas">
-            <button class="bouton bouton--clair bouton--grand" type="submit"><span class="bouton__texte">Envoyer ma candidature</span></button>
+            <button class="bouton bouton--clair bouton--grand" type="submit"><span class="bouton__texte">Proposer le projet</span></button>
             <p class="formulaire__etat" role="status" aria-live="polite"></p>
           </div>
         </form>

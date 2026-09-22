@@ -5,7 +5,7 @@ const demarrerContact = () => {
   // ---------- Formulaires ----------
   const MESSAGES = {
     projet: 'Merci ! Votre projet est bien arrivé. Nous vous recontactons très vite pour en parler.',
-    reseau: 'Merci ! Votre candidature est bien arrivée. Nous l\'étudions et revenons vers vous rapidement.',
+    reseau: 'Merci ! Votre proposition est bien arrivée. Nous l\'étudions et revenons vers vous rapidement.',
   };
 
   document.querySelectorAll('[data-formulaire]').forEach((formulaire) => {
