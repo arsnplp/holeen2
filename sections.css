@@ -426,7 +426,7 @@ html.lenis, html.lenis body { height: auto; }
 
 /* ---------- 6. Témoignages ---------- */
 .temoignages { overflow: hidden; }
-.temoignages__cadre { position: relative; padding: 112px 0 32px; }
+.temoignages__cadre { position: relative; padding: 112px 0 64px; }
 .temoignages__cadre > *:not(.fond) { position: relative; }
 
 .temoignages__entete { align-items: baseline; margin-bottom: 40px; }
@@ -600,7 +600,6 @@ html.lenis, html.lenis body { height: auto; }
   letter-spacing: -.0162em;
 }
 
-.appel__bas { height: 112px; background: var(--encre); }
 
 /* ---------- 9. Prestataires ---------- */
 .prestataires__cote { grid-column: 1 / span 2; display: flex; flex-direction: column; gap: 48px; padding-top: 12px; align-self: start; }
