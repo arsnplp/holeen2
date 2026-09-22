@@ -730,3 +730,11 @@ a.domaine__nom .lien__icone { flex: none; transition: background .3s; }
 .pourquoi .s__haut { height: 64px; }
 .pourquoi .s__bas { height: 80px; }
 .pourquoi__note { gap: 32px; }
+
+/* Fond de la section « Notre rôle » : voile sombre pour la lisibilité du texte blanc */
+.offre__fond::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(37, 37, 37, .55) 0%, rgba(37, 37, 37, .35) 45%, rgba(37, 37, 37, .15) 100%);
+}
