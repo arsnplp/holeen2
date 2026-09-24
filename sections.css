@@ -696,8 +696,37 @@ html.lenis, html.lenis body { height: auto; }
   .pourquoi__carte ul { grid-template-columns: 1fr; }
 
   .temoignages__mention { text-align: left; margin-top: 8px; }
-  .processus__etapes { grid-template-columns: 1fr; }
-  .etape__carte { min-height: 400px; padding: 16px; }
+  /* Éventail : les trois cartes se superposent, l'active au centre et devant */
+  .processus__etapes {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
+    height: 560px;
+    perspective: 1200px;
+    touch-action: pan-y;
+    overflow: hidden; /* les cartes de côté dépassent volontairement, sans élargir la page */
+    margin: 0 calc(var(--marge) * -1);
+    padding: 0 var(--marge);
+  }
+
+  .etape {
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    width: 74%;
+    justify-self: center;
+    cursor: pointer;
+    transform-origin: 50% 110%;
+    transition: transform .65s cubic-bezier(.19, 1, .22, 1), opacity .45s;
+    /* --pos : -1 (gauche), 0 (centre), 1 (droite) */
+    transform: translateX(calc(var(--pos, 0) * 24%)) rotate(calc(var(--pos, 0) * 8deg)) scale(calc(1 - .12 * var(--ecart, 0)));
+    opacity: calc(1 - .35 * var(--ecart, 0));
+    z-index: calc(3 - var(--ecart, 0));
+  }
+
+  .etape--active { cursor: default; }
+  .etape__carte { flex: 1; min-height: 0; padding: 16px; }
+  .etape__verre .h3 { font-size: 22px; }
+  .etape__verre p { font-size: 15px; }
 
   .appel { padding: 72px var(--marge); }
   .appel__carte { padding: 32px; gap: 40px; }

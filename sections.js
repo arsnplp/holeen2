@@ -113,6 +113,48 @@ const demarrerSections = () => {
     });
   })();
 
+  // ---------- Étapes en éventail (petits écrans) ----------
+  (() => {
+    const groupe = document.querySelector('.processus__etapes');
+    if (!groupe) return;
+    const cartes = [...groupe.querySelectorAll('.etape')];
+    const petitEcran = window.matchMedia('(max-width: 991px)');
+    let active = 1;
+
+    const placer = () => {
+      cartes.forEach((carte, i) => {
+        // Position circulaire : la carte opposée passe de l'autre côté, il y a toujours une carte à gauche et une à droite
+        let pos = petitEcran.matches ? i - active : 0;
+        if (pos > 1) pos -= cartes.length;
+        if (pos < -1) pos += cartes.length;
+        carte.style.setProperty('--pos', pos);
+        carte.style.setProperty('--ecart', Math.abs(pos));
+        carte.classList.toggle('etape--active', petitEcran.matches && i === active);
+      });
+    };
+
+    cartes.forEach((carte, i) => carte.addEventListener('click', () => {
+      if (!petitEcran.matches || i === active) return;
+      active = i;
+      placer();
+    }));
+
+    // Glissement au doigt : on passe à la carte voisine
+    let departX = null;
+    groupe.addEventListener('pointerdown', (e) => { departX = e.clientX; });
+    groupe.addEventListener('pointerup', (e) => {
+      if (departX === null || !petitEcran.matches) return;
+      const dx = e.clientX - departX;
+      departX = null;
+      if (Math.abs(dx) < 40) return;
+      active = (active + (dx < 0 ? 1 : -1) + cartes.length) % cartes.length;
+      placer();
+    });
+
+    petitEcran.addEventListener('change', placer);
+    placer();
+  })();
+
   if (mouvementReduit) return;
 
   // ---------- Grands titres : chaque ligne monte depuis son masque ----------
