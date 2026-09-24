@@ -139,17 +139,31 @@ const demarrerSections = () => {
       placer();
     }));
 
-    // Glissement au doigt : on passe à la carte voisine
-    let departX = null;
-    groupe.addEventListener('pointerdown', (e) => { departX = e.clientX; });
-    groupe.addEventListener('pointerup', (e) => {
-      if (departX === null || !petitEcran.matches) return;
-      const dx = e.clientX - departX;
-      departX = null;
-      if (Math.abs(dx) < 40) return;
+    // Glissement au doigt (ou à la souris) : on passe à la carte voisine.
+    // Le suivi se fait pendant le geste : dès que le doigt a parcouru 40 px en horizontal, on change de carte,
+    // sans attendre le relâchement, que le navigateur peut avaler s'il prend le défilement.
+    let departX = null, departY = null, glisse = false;
+    const debut = (x, y) => { departX = x; departY = y; glisse = false; };
+    const suivi = (x, y) => {
+      if (departX === null || glisse || !petitEcran.matches) return;
+      const dx = x - departX, dy = y - departY;
+      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+      glisse = true;
       active = (active + (dx < 0 ? 1 : -1) + cartes.length) % cartes.length;
       placer();
-    });
+    };
+    const fin = () => { departX = null; };
+
+    groupe.addEventListener('touchstart', (e) => debut(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+    groupe.addEventListener('touchmove', (e) => suivi(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+    groupe.addEventListener('touchend', fin);
+    groupe.addEventListener('mousedown', (e) => debut(e.clientX, e.clientY));
+    groupe.addEventListener('mousemove', (e) => { if (e.buttons) suivi(e.clientX, e.clientY); });
+    groupe.addEventListener('mouseup', fin);
+    groupe.addEventListener('mouseleave', fin);
+
+    // Un tap qui suit un glissement ne doit pas re-changer de carte
+    cartes.forEach((carte) => carte.addEventListener('click', (e) => { if (glisse) e.stopImmediatePropagation(); }, true));
 
     petitEcran.addEventListener('change', placer);
     placer();
