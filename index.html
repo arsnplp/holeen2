@@ -428,61 +428,7 @@
             Nous cadrons le besoin, choisissons les bons partenaires et restons à vos côtés avant, pendant et après
             la réalisation. Vous gardez la main sur les décisions, nous nous occupons du reste.
           </p>
-          <a class="lien" href="#processus">Découvrir notre approche<span class="lien__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-        </div>
-      </div>
-      <div class="s__bas"></div>
-    </section>
-
-    <!-- 5. Pourquoi nous -->
-    <section class="s pourquoi" id="pourquoi">
-      <div class="s__haut"></div>
-      <div class="conteneur grille">
-        <p class="surtitre pourquoi__surtitre">Pourquoi nous choisir</p>
-        <div class="pourquoi__entete">
-          <h2 class="h2">Un réseau large, un suivi sur mesure</h2>
-          <p>
-            Des grands groupes aux pépites spécialisées, notre carnet d'adresses couvre tous les métiers.
-            Quel que soit votre projet, nous savons déjà qui appeler — et nous restons responsables du résultat.
-          </p>
-        </div>
-        <div class="pourquoi__cartes">
-            <article class="pourquoi__carte">
-              <div class="pourquoi__carte-haut">
-                <h3 class="h3">Un réseau très large</h3>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5v8l-9 5-9-5V8z"/><path d="M12 12l9-4M12 12v9M12 12L3 8"/></svg>
-              </div>
-              <ul><li>Grands groupes et indépendants</li><li>Tous secteurs d'activité</li><li>Prestataires testés et approuvés</li><li>Des pépites introuvables ailleurs</li></ul>
-            </article>
-            <article class="pourquoi__carte">
-              <div class="pourquoi__carte-haut">
-                <h3 class="h3">Du temps gagné</h3>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-              </div>
-              <ul><li>Un seul interlocuteur</li><li>Devis comparés pour vous</li><li>Relances prises en charge</li><li>Reporting clair et régulier</li></ul>
-            </article>
-            <article class="pourquoi__carte">
-              <div class="pourquoi__carte-haut">
-                <h3 class="h3">Des économies réelles</h3>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 7.5A6 6 0 1 0 17 16.5M5 10.5h8M5 13.5h8"/></svg>
-              </div>
-              <ul><li>Tarifs négociés</li><li>Aucun surcoût pour vous</li><li>Meilleur rapport qualité / prix</li><li>Budget maîtrisé de bout en bout</li></ul>
-            </article>
-            <article class="pourquoi__carte">
-              <div class="pourquoi__carte-haut">
-                <h3 class="h3">Un pilotage complet</h3>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h2M10 12h10M4 18h8M16 18h4"/><circle cx="16" cy="6" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="14" cy="18" r="2"/></svg>
-              </div>
-              <ul><li>Cadrage du besoin</li><li>Coordination des intervenants</li><li>Suivi des délais</li><li>Contrôle à la livraison</li></ul>
-            </article>
-        </div>
-        <div class="pourquoi__image"><img src="section1-reseau.webp" alt="Holeen Family au centre de son réseau : industrie, IT &amp; digital, services, BTP, logistique, commerce, environnement" data-animate="scale-in" style="object-fit:contain;object-position:center bottom" loading="lazy"></div>
-        <div class="pourquoi__note">
-          <p>
-            Nous ne prenons pas tous les projets. Si nous ne sommes pas les bons interlocuteurs, nous vous le dirons.
-            Ce que nous ne ferons jamais : bâcler un dossier, rogner sur la qualité ou vous laisser sans réponse.
-          </p>
-          <a class="lien" href="contact.html#projet">Nous confier un projet<span class="lien__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          <a class="lien" href="#pourquoi">Découvrir notre approche<span class="lien__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
         </div>
       </div>
       <div class="s__bas"></div>
@@ -644,6 +590,70 @@
       </div>
     </footer>
   </main>
+
+  <!-- Fenêtre « Pourquoi nous » : s'ouvre depuis « Découvrir notre approche » et les liens #pourquoi -->
+  <div class="fenetre" id="pourquoi" role="dialog" aria-modal="true" aria-labelledby="pourquoi-titre" hidden>
+    <div class="fenetre__voile" data-fenetre-fermer></div>
+    <div class="fenetre__cadre">
+      <button class="fenetre__fermer" type="button" aria-label="Fermer" data-fenetre-fermer>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="fenetre__contenu site">
+    <!-- 5. Pourquoi nous -->
+    <section class="s pourquoi">
+      <div class="conteneur grille">
+        <p class="surtitre pourquoi__surtitre">Pourquoi nous choisir</p>
+        <div class="pourquoi__entete">
+          <h2 class="h2" id="pourquoi-titre">Un réseau large, un suivi sur mesure</h2>
+          <p>
+            Des grands groupes aux pépites spécialisées, notre carnet d'adresses couvre tous les métiers.
+            Quel que soit votre projet, nous savons déjà qui appeler — et nous restons responsables du résultat.
+          </p>
+        </div>
+        <div class="pourquoi__cartes">
+            <article class="pourquoi__carte">
+              <div class="pourquoi__carte-haut">
+                <h3 class="h3">Un réseau très large</h3>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5v8l-9 5-9-5V8z"/><path d="M12 12l9-4M12 12v9M12 12L3 8"/></svg>
+              </div>
+              <ul><li>Grands groupes et indépendants</li><li>Tous secteurs d'activité</li><li>Prestataires testés et approuvés</li><li>Des pépites introuvables ailleurs</li></ul>
+            </article>
+            <article class="pourquoi__carte">
+              <div class="pourquoi__carte-haut">
+                <h3 class="h3">Du temps gagné</h3>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              </div>
+              <ul><li>Un seul interlocuteur</li><li>Devis comparés pour vous</li><li>Relances prises en charge</li><li>Reporting clair et régulier</li></ul>
+            </article>
+            <article class="pourquoi__carte">
+              <div class="pourquoi__carte-haut">
+                <h3 class="h3">Des économies réelles</h3>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 7.5A6 6 0 1 0 17 16.5M5 10.5h8M5 13.5h8"/></svg>
+              </div>
+              <ul><li>Tarifs négociés</li><li>Aucun surcoût pour vous</li><li>Meilleur rapport qualité / prix</li><li>Budget maîtrisé de bout en bout</li></ul>
+            </article>
+            <article class="pourquoi__carte">
+              <div class="pourquoi__carte-haut">
+                <h3 class="h3">Un pilotage complet</h3>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h2M10 12h10M4 18h8M16 18h4"/><circle cx="16" cy="6" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="14" cy="18" r="2"/></svg>
+              </div>
+              <ul><li>Cadrage du besoin</li><li>Coordination des intervenants</li><li>Suivi des délais</li><li>Contrôle à la livraison</li></ul>
+            </article>
+        </div>
+        <div class="pourquoi__image"><img src="section1-reseau.webp" alt="Holeen Family au centre de son réseau : industrie, IT &amp; digital, services, BTP, logistique, commerce, environnement" data-animate="scale-in" style="object-fit:contain;object-position:center bottom" loading="lazy"></div>
+        <div class="pourquoi__note">
+          <p>
+            Nous ne prenons pas tous les projets. Si nous ne sommes pas les bons interlocuteurs, nous vous le dirons.
+            Ce que nous ne ferons jamais : bâcler un dossier, rogner sur la qualité ou vous laisser sans réponse.
+          </p>
+          <a class="lien" href="contact.html#projet">Nous confier un projet<span class="lien__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        </div>
+      </div>
+    </section>
+
+      </div>
+    </div>
+  </div>
 
   <canvas id="etincelles" aria-hidden="true" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999"></canvas>
 

@@ -113,6 +113,43 @@ const demarrerSections = () => {
     });
   })();
 
+  // ---------- Fenêtre « Pourquoi nous » ----------
+  (() => {
+    const fenetre = document.getElementById('pourquoi');
+    if (!fenetre || !fenetre.classList.contains('fenetre')) return;
+    let precedent = null;
+
+    const ouvrir = () => {
+      precedent = document.activeElement;
+      fenetre.hidden = false;
+      document.body.classList.add('fenetre-ouverte');
+      if (lenis) lenis.stop();
+      requestAnimationFrame(() => fenetre.classList.add('est-ouverte'));
+      fenetre.querySelector('.fenetre__fermer').focus();
+      // Les images et animations du contenu se lancent à l'ouverture
+      fenetre.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = 'eager'; });
+      ScrollTrigger.refresh();
+    };
+
+    const fermer = () => {
+      fenetre.classList.remove('est-ouverte');
+      document.body.classList.remove('fenetre-ouverte');
+      if (lenis) lenis.start();
+      setTimeout(() => { fenetre.hidden = true; }, 380);
+      if (precedent) precedent.focus();
+    };
+
+    // Tous les liens vers #pourquoi ouvrent la fenêtre au lieu de défiler
+    document.querySelectorAll('a[href="#pourquoi"]').forEach((a) => {
+      a.addEventListener('click', (ev) => { ev.preventDefault(); ev.stopImmediatePropagation(); ouvrir(); }, true);
+    });
+    fenetre.querySelectorAll('[data-fenetre-fermer]').forEach((b) => b.addEventListener('click', fermer));
+    document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && !fenetre.hidden) fermer(); });
+
+    // Arrivée directe sur index.html#pourquoi
+    if (location.hash === '#pourquoi') ouvrir();
+  })();
+
   // ---------- Étapes en éventail (petits écrans) ----------
   (() => {
     const groupe = document.querySelector('.processus__etapes');

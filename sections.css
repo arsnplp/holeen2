@@ -786,3 +786,64 @@ a.domaine__nom .lien__icone { flex: none; transition: background .3s; }
 
 /* Les icônes téléphone / e-mail gardent leur taille partout */
 .direct__ligne svg { width: 20px !important; height: 20px !important; }
+
+/* ---------- Fenêtre modale ---------- */
+.fenetre { position: fixed; inset: 0; z-index: 9000; display: grid; place-items: center; padding: 24px; }
+.fenetre[hidden] { display: none; }
+
+.fenetre__voile {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 8, 6, .72);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.fenetre__cadre {
+  position: relative;
+  width: min(1240px, 100%);
+  max-height: calc(100svh - 48px);
+  overflow: auto;
+  border-radius: 12px;
+  background: var(--creme, #f8f4ee);
+  box-shadow: 0 40px 120px -30px rgba(0, 0, 0, .8);
+  overscroll-behavior: contain;
+}
+
+.fenetre__contenu { background: var(--creme); }
+.fenetre__contenu .pourquoi { padding: 56px 0 48px; }
+.fenetre__contenu .pourquoi__image { min-height: 280px; }
+
+.fenetre__fermer {
+  position: sticky;
+  top: 16px;
+  float: right;
+  margin: 16px 16px -56px 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(37, 37, 37, .25);
+  border-radius: 50%;
+  background: var(--creme, #f8f4ee);
+  color: #252525;
+  cursor: pointer;
+  transition: background .25s, color .25s, transform .3s;
+}
+
+.fenetre__fermer svg { width: 20px; height: 20px; }
+.fenetre__fermer:hover { background: #252525; color: var(--creme); transform: rotate(90deg); }
+
+/* Ouverture : le voile se fond, le cadre monte en douceur */
+.fenetre__voile, .fenetre__cadre { opacity: 0; transition: opacity .35s; }
+.fenetre__cadre { transform: translateY(24px) scale(.98); transition: opacity .35s, transform .55s cubic-bezier(.19, 1, .22, 1); }
+.fenetre.est-ouverte .fenetre__voile, .fenetre.est-ouverte .fenetre__cadre { opacity: 1; }
+.fenetre.est-ouverte .fenetre__cadre { transform: none; }
+body.fenetre-ouverte { overflow: hidden; }
+
+@media (max-width: 991px) {
+  .fenetre { padding: 12px; }
+  .fenetre__cadre { max-height: calc(100svh - 24px); }
+  .fenetre__contenu .pourquoi { padding: 40px 0 32px; }
+}
