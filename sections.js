@@ -80,10 +80,8 @@ const demarrerSections = () => {
     actualiser();
   })();
 
-  // ---------- Logos : défilement continu, déplaçable à la souris ----------
-  (() => {
-    const piste = document.getElementById('logos-piste');
-    if (!piste) return;
+  // ---------- Logos : défilement continu, déplaçable à la souris (une bande par piste) ----------
+  document.querySelectorAll('.logos__piste').forEach((piste) => {
     const panneaux = piste.querySelectorAll('.logos__panneau');
     const VITESSE = 80; // pixels par seconde
     const allure = { valeur: 1 };
@@ -111,7 +109,7 @@ const demarrerSections = () => {
           .to(allure, { valeur: sens * repos, duration: 1 });
       },
     });
-  })();
+  });
 
   // ---------- Fenêtre « Pourquoi nous » ----------
   (() => {
