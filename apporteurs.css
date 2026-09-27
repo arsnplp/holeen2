@@ -45,3 +45,7 @@
 .visuel--compact .visuel__contenu { padding: 64px 32px; }
 .visuel--compact .visuel__cote { text-shadow: none; }
 @media (max-width: 991px) { .visuel--compact .visuel__contenu { padding: 40px 20px; } }
+
+/* Respiration entre le bloc d'action et le pied de page */
+.visuel--compact { margin-bottom: 80px; }
+@media (max-width: 991px) { .visuel--compact { margin-bottom: 48px; } }
