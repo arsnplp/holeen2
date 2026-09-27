@@ -34,5 +34,14 @@
   .profils__liste { margin-top: 32px; }
 }
 
-/* Aucun vide clair sous le fond en parallaxe, même avant son premier déplacement */
-.visuel { background: #0b0806; }
+
+/* Passage à l'action compact : hauteur du contenu, dégradé sombre discret */
+.visuel--compact {
+  min-height: 0;
+  background:
+    radial-gradient(60% 80% at 85% 20%, rgba(217, 165, 82, .18), transparent 70%),
+    linear-gradient(160deg, #1d1a24, #0b0806);
+}
+.visuel--compact .visuel__contenu { padding: 64px 32px; }
+.visuel--compact .visuel__cote { text-shadow: none; }
+@media (max-width: 991px) { .visuel--compact .visuel__contenu { padding: 40px 20px; } }
