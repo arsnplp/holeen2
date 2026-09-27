@@ -255,7 +255,7 @@ html.lenis, html.lenis body { height: auto; }
   display: flex;
   flex-direction: column;
   gap: 64px;
-  margin: 0 var(--marge);
+  margin: 64px var(--marge) 0;
   padding: 48px 32px 32px;
   border-radius: 8px;
   background: var(--encre);
