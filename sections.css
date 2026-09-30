@@ -893,3 +893,67 @@ body.fenetre-ouverte { overflow: hidden; }
   .famille__surtitre { padding-top: 0; margin-bottom: 12px; }
   .famille__droite { justify-content: flex-start; margin-top: 24px; }
 }
+
+/* ---------- Retouches du 30/09 ---------- */
+
+/* Domaines : phrase courte pour les besoins hors liste */
+.domaines__autre {
+  grid-column: 3 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 32px;
+  margin-top: 28px;
+  padding: 18px 24px;
+  border-left: 3px solid var(--or, #d9a552);
+  border-radius: 0 4px 4px 0;
+  background: #efe6d6;
+  font-size: 16px;
+}
+.domaines__autre .lien { flex: none; }
+
+/* Partenaires : les logos sont des liens, une petite flèche le signale (visible aussi sans survol) */
+.partenaires .logos__panneau a { display: inline-flex; align-items: flex-start; gap: 6px; }
+.partenaires .logos__panneau a::after {
+  content: "↗";
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  color: #9a6424;
+  opacity: .9;
+  transition: transform .3s, opacity .3s;
+}
+.partenaires .logos__panneau a:hover::after { opacity: 1; transform: translate(2px, -2px); }
+
+.partenaires__indice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 36px;
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(37, 37, 37, .6);
+}
+.partenaires__indice svg { width: 16px; height: 16px; color: #9a6424; }
+
+/* Étapes : la carte s'arrête peu après son texte ; les trois gardent la même hauteur */
+.etape { display: flex; flex-direction: column; }
+.etape__carte { flex: 1; min-height: 0; padding-bottom: 56px; }
+
+/* Appel à l'action : section et carte plus compactes */
+.appel { min-height: 0; padding: 88px var(--marge); }
+.appel__carte { gap: 40px; padding: 48px; }
+
+@media (max-width: 991px) {
+  .domaines__autre { grid-column: 1 / -1; flex-direction: column; align-items: flex-start; padding: 16px 18px; }
+  .processus__etapes { height: 380px; }
+  .etape__carte { padding-bottom: 16px; }
+  .appel { padding: 56px var(--marge); }
+  .appel__carte { gap: 32px; padding: 28px; }
+}
+
+/* Sections courtes : le fond en parallaxe (-35 % → 0) doit couvrir le cadre à tout moment, d'où 156 % de hauteur */
+.famille .fond .fond__image,
+.appel .fond .fond__image { height: 156%; }
