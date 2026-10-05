@@ -808,6 +808,8 @@ a.domaine__nom .lien__icone { flex: none; transition: background .3s; }
   background: var(--creme, #f8f4ee);
   box-shadow: 0 40px 120px -30px rgba(0, 0, 0, .8);
   overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 .fenetre__contenu { background: var(--creme); }
