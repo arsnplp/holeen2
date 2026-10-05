@@ -364,3 +364,8 @@ a { color: inherit; text-decoration: none; }
 .champ input:focus-visible,
 .champ select:focus-visible,
 .champ textarea:focus-visible { outline: none; }
+
+/* Bloc téléphone / e-mail : cible des boutons « Contact » du menu */
+#coordonnees { scroll-margin-top: 24px; }
+#coordonnees:target { border-color: var(--or); box-shadow: 0 0 0 3px rgba(217, 165, 82, .25); }
+#coordonnees .direct__ligne { font-size: 19px; }

@@ -301,6 +301,24 @@ const demarrerSections = () => {
 
   ScrollTrigger.refresh();
   window.addEventListener('load', () => ScrollTrigger.refresh());
+
+  // Arrivée sur une ancre depuis une autre page (ex. contact.html#coordonnees) :
+  // les polices et les images ont pu décaler la cible, on s'y replace.
+  const cibleInitiale = location.hash.length > 1 && location.hash !== '#pourquoi' ? document.querySelector(location.hash) : null;
+  if (cibleInitiale) {
+    // Sur grand écran, un bloc de la colonne latérale (fixe au défilement) s'affiche avec toute sa section ;
+    // sur téléphone, on arrive directement dessus.
+    const grandEcran = window.matchMedia('(min-width: 992px)').matches;
+    const repere = grandEcran && cibleInitiale.closest('.volet__cote') ? cibleInitiale.closest('section') : cibleInitiale;
+    const allerCible = () => {
+      const marge = parseFloat(getComputedStyle(repere).scrollMarginTop) || 0;
+      const y = repere.getBoundingClientRect().top + window.scrollY - marge;
+      if (lenis) lenis.scrollTo(y, { immediate: true });
+      else window.scrollTo(0, y);
+    };
+    allerCible();
+    window.addEventListener('load', allerCible);
+  }
 };
 
 // Le découpage des textes dépend des polices : on attend qu'elles soient chargées
