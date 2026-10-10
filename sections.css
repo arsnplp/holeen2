@@ -959,3 +959,43 @@ body.fenetre-ouverte { overflow: hidden; }
 /* Sections courtes : le fond en parallaxe (-35 % → 0) doit couvrir le cadre à tout moment, d'où 156 % de hauteur */
 .famille .fond .fond__image,
 .appel .fond .fond__image { height: 156%; }
+
+/* ---------- 9. Questions fréquentes ---------- */
+.faq__surtitre { grid-column: 1 / span 2; padding-top: 12px; align-self: start; }
+.faq__entete { grid-column: 3 / span 5; display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+.faq__entete p { color: rgba(37, 37, 37, .75); }
+.faq__liste { grid-column: 3 / -1; border-top: 1px solid var(--encre); }
+.faq__item { border-bottom: 1px solid var(--encre); }
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 0;
+  list-style: none;
+  cursor: pointer;
+  transition: padding-left .4s cubic-bezier(.19, 1, .22, 1);
+}
+.faq__question::-webkit-details-marker { display: none; }
+.faq__question:hover { padding-left: 10px; }
+.faq__question .h3 { font-size: 19px; }
+.faq__icone { position: relative; flex: none; width: 32px; height: 32px; border: 1px solid var(--encre); border-radius: 50%; transition: transform .4s cubic-bezier(.19, 1, .22, 1), background .3s; }
+.faq__icone::before, .faq__icone::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 1px; background: currentColor; transform: translate(-50%, -50%); }
+.faq__icone::after { transform: translate(-50%, -50%) rotate(90deg); }
+.faq__item[open] .faq__icone { transform: rotate(45deg); background: var(--encre); color: var(--creme); }
+.faq__reponse { padding: 0 56px 26px 0; }
+.faq__reponse p { max-width: 720px; color: rgba(37, 37, 37, .78); }
+.faq__question:focus-visible { outline: 2px solid var(--or, #d9a552); outline-offset: 4px; }
+
+@media (max-width: 991px) {
+  .faq__surtitre, .faq__entete, .faq__liste { grid-column: 1 / -1; }
+  .faq__surtitre { padding-top: 0; margin-bottom: 16px; }
+  .faq__entete { margin-bottom: 24px; }
+  .faq__question { padding: 18px 0; gap: 16px; }
+  .faq__question .h3 { font-size: 17px; }
+  .faq__reponse { padding-right: 0; }
+}
+
+/* Accessibilité : contraste des libellés discrets (lisibilité, apparence quasi identique) */
+.partenaires__indice { color: rgba(37, 37, 37, .72); }
+.pied__plan h2, .pied__legal h2 { color: rgba(248, 244, 238, .62); }

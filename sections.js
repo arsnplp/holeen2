@@ -40,7 +40,7 @@ const demarrerSections = () => {
 
   // ---------- Boutons : lettres qui défilent au survol ----------
   document.querySelectorAll('.bouton__texte').forEach((texte) => {
-    const decoupe = new SplitText(texte, { type: 'chars', charsClass: 'lettre' });
+    const decoupe = new SplitText(texte, { type: 'chars', charsClass: 'lettre', aria: 'none' });
     decoupe.chars.forEach((lettre, i) => { lettre.style.transitionDelay = i * 0.01 + 's'; });
     texte.parentElement.style.lineHeight = '1.4';
     texte.style.overflow = 'hidden';
@@ -284,6 +284,7 @@ const demarrerSections = () => {
   document.querySelectorAll('[data-highlight-text]').forEach((phrase) => {
     new SplitText(phrase, {
       type: 'words, chars',
+      aria: 'none',
       autoSplit: true,
       onSplit(decoupe) {
         return gsap.timeline({

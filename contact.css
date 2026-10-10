@@ -35,7 +35,7 @@ a { color: inherit; text-decoration: none; }
 
 .accueil .fond { z-index: -1; }
 
-.accueil__image { background: var(--noir) url("header.png") right center / cover no-repeat; }
+.accueil__image { background: var(--noir) url("header.webp") right center / cover no-repeat; }
 
 .accueil__image::after {
   content: "";
