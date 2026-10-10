@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arsnplp.github.io/holeen2/sitemap.xml
+Sitemap: https://holeen-family.com/sitemap.xml
