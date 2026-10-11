@@ -999,3 +999,6 @@ body.fenetre-ouverte { overflow: hidden; }
 /* Accessibilité : contraste des libellés discrets (lisibilité, apparence quasi identique) */
 .partenaires__indice { color: rgba(37, 37, 37, .72); }
 .pied__plan h2, .pied__legal h2 { color: rgba(248, 244, 238, .62); }
+
+/* Partenaires : mention sur les tarifs négociés, sous l'indice */
+.partenaires__avantage { margin: 14px auto 0; max-width: 560px; text-align: center; font-size: 15px; color: rgba(37, 37, 37, .78); }
