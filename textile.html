@@ -24,12 +24,8 @@
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Organization", "name": "Holeen Family", "url": "https://holeen-family.com/", "logo": "https://holeen-family.com/icon-512.png", "image": "https://holeen-family.com/og-image.jpg", "telephone": "+33767645977", "areaServed": "FR", "description": "Holeen Family met en relation les entreprises avec les bons prestataires : communication, événementiel, textile. Un seul interlocuteur, sans surcoût."}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://holeen-family.com/"}, {"@type": "ListItem", "position": 2, "name": "Textile", "item": "https://holeen-family.com/textile.html"}]}]</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Kufam:wght@400;500&family=Overpass:wght@400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Kufam:wght@400;500&family=Overpass:wght@400;700&display=swap"></noscript>
+  <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="menu.css">
   <link rel="stylesheet" href="sections.css">
   <link rel="stylesheet" href="domaine.css">
@@ -163,17 +159,22 @@
       </div>
       <div class="pied__bas">
         <p>© <span id="annee">2026</span> Holeen Family. Tous droits réservés.</p>
+        <ul class="pied__liens" aria-label="Informations légales">
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+          <li><a href="cgu.html">CGU</a></li>
+        </ul>
       </div>
     </footer>
   </main>
 
   <canvas id="etincelles" aria-hidden="true" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999"></canvas>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Observer.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.17/dist/lenis.min.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/Observer.min.js"></script>
+  <script src="vendor/SplitText.min.js"></script>
+  <script src="vendor/lenis.min.js"></script>
   <script src="menu.js"></script>
   <script src="etincelles.js"></script>
   <script src="sections.js"></script>

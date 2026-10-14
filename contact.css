@@ -178,7 +178,7 @@ a { color: inherit; text-decoration: none; }
   --trait: rgba(37, 37, 37, .35);
   --trait-actif: #252525;
   --accent: #9a6424;
-  --discret: rgba(37, 37, 37, .6);
+  --discret: rgba(37, 37, 37, .66);
   display: flex;
   flex-direction: column;
   gap: 40px;

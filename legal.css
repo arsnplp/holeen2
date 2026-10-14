@@ -1,0 +1,19 @@
+/* Pages légales (mentions légales, confidentialité, CGU) */
+.entete--legal { min-height: 52svh; }
+.entete--legal .entete__titre { font-size: clamp(36px, 6vw, 80px); }
+
+.legal { max-width: 820px; font-size: 17px; line-height: 1.6; }
+.legal h2 {
+  margin: 48px 0 12px;
+  font-family: var(--titre);
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -.0162em;
+}
+.legal h2:first-child { margin-top: 0; }
+.legal h3 { margin: 24px 0 8px; font-family: var(--titre); font-size: 19px; font-weight: 400; }
+.legal p { margin: 0 0 14px; }
+.legal .chapo { margin-bottom: 32px; }
+.legal a { color: #7a4f1c; text-decoration: underline; text-underline-offset: 3px; }
+.legal a:hover { color: var(--encre); }
