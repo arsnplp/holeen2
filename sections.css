@@ -659,6 +659,7 @@ html.lenis, html.lenis body { height: auto; }
   gap: 16px;
   color: rgba(248, 244, 238, .5);
 }
+.footer__credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 
 /* ---------- Adaptation tablette / mobile ---------- */
 @media (max-width: 991px) {
