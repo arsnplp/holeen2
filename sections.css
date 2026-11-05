@@ -764,7 +764,7 @@ a.domaine__nom .lien__icone { flex: none; transition: background .3s; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(37, 37, 37, .55) 0%, rgba(37, 37, 37, .35) 45%, rgba(37, 37, 37, .15) 100%);
+  background: linear-gradient(180deg, rgba(20, 16, 12, .78) 0%, rgba(20, 16, 12, .6) 50%, rgba(20, 16, 12, .4) 100%);
 }
 
 /* ---------- Coordonnées directes (téléphone + e-mail) ---------- */
